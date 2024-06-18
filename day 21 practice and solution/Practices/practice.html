@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <h1 class="title" id="First-title">First Title</h1>
+ <h1 class="title" id="Second title">Second Title</h1>
+ <h1 class="title" id="Third title">Third Title</h1>
+ <h1> </h1>
+<ul> </ul> 
+ <script>
+  const list=
+  `
+  <li>Cycling</li>
+  <li>Running</li>
+  <li>Pushups</li>
+  <li>Yoga</li>
+  <li>Swimming</li>
+    `
+
+// adding the text to 
+    let myGamesList=document.querySelector('ul')
+    myGamesList.innerHTML=list
+ 
+    // removing all the innerHtml
+ 
+// myGamesList.innerHTML=''
+  
+  
+  
+  const alltitles=document.getElementsByClassName('title')
+  
+  for(let title of alltitles)
+  {
+    console.log(title.textContent);
+  }
+
+let eleAll= document.querySelectorAll(".title")
+
+eleAll.forEach((element)=>
+{
+  console.log(element.id);
+  
+})
+
+
+let allElements=document.querySelectorAll('h1')
+
+allElements[3].className="title"
+allElements[3].id="Fourth Element"
+allElements[3].innerHTML="Fourth Text here"
+console.log(allElements);
+
+// const titles = document.querySelectorAll('h1')
+// titles.forEach((title, i) => {
+//   title.style.fontSize = '24px' // all titles will have 24px font size
+//   if (i % 2 === 0) {
+//     title.style.color = 'green'
+//   } else {
+//     title.style.color = 'red'
+//   }
+// })
+  
+const titles= document.querySelectorAll('h1')
+
+titles.forEach((title,i)=>
+{
+  if(i%2===0)
+  {
+    title.style.color='red'
+    title.style.background='yellow'
+    title.style.fontSize='10px'
+   // title.style.fontSize = '10px'
+  }
+  else{
+    title.style.color='green'
+    title.style.background="pink"
+    title.style.fontSize='30px'
+  }
+})
+
+ 
+
+
+
+ </script>
+ 
+</body>
+</html>

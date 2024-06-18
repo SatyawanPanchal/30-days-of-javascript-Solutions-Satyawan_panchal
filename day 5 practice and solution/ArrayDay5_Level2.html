@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="countries.js"></script>   <!---part of problem 1 -->
+    <script src="web_techs.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+// 1.	Create a separate countries.js file and 
+//store the countries array in to this file,
+// create a separate file web_techs.js and
+// store the webTechs array in to this file.
+// Access both file in main.js file
+
+// three files named countries.js , web_techs.js, and main.js are created in 
+// same folder and variables of countries.js and web_techs.js are accessed in
+// main.js 
+
+// 2.	First remove all the punctuations and change the 
+//string to array and count the number of words in the array
+// 	let text =
+// 	'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+// 	console.log(words)
+// console.log(words.length)
+// ["I", "love", "teaching", "and", "empowering", "people", "I", "teach", "HTML", "CSS", "JS", "React", "Python"]
+
+	let text ='I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+    let newText=text.replace(/[^\w\s]/g,"")
+    console.log(newText);
+    let words=newText.split(" ")
+    console.log(words);
+    console.log(words.length);
+    
+    
+    
+
+// 
+// 3.	In the following shopping cart add, remove, edit items
+// const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+
+const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+// o	add 'Meat' in the beginning of your shopping cart if it has not been already added
+
+if(shoppingCart[0]!=='Meat')
+{
+    console.log("Meat is not existing");
+    
+    shoppingCart.splice(0,0,'Meat')
+}
+else{
+    console.log("Meat is existing no need to include");
+    
+}
+
+console.log(shoppingCart);
+// o	add Sugar at the end of you shopping cart if it has not been already added
+
+if(shoppingCart.includes('suger'))
+{
+    console.log('sugar already exists');
+    
+}
+else{
+    console.log('ok not existing i am adding');
+    
+    shoppingCart.push('sugar')
+}
+
+console.log(shoppingCart);
+// o	remove 'Honey' if you are allergic to honey
+
+shoppingCart.push('')
+
+let isAllergictoHoney='YES'
+if(isAllergictoHoney=='YES')
+{
+    console.log('you are an allergic to honey m removing');
+    let indexofHoney=shoppingCart.indexOf('Honey')
+    shoppingCart.splice(indexofHoney,1)
+    shoppingCart.pop()
+    console.log(shoppingCart);
+    
+}
+else if (isAllergictoHoney=='NO')
+{
+    console.log('no need to remove Honey');
+}
+else
+{
+    alert("Enter a proper value please")
+}
+
+// 4.	In countries array check if 'Ethiopia' 
+//exists in the array if it exists
+// print 'ETHIOPIA'. If it does not exist add to the countries list.
+console.log(countries);
+
+if(countries.indexOf('Ethiopia')==-1)
+{
+    console.log('not existing ethiopia');
+    
+   countries.push('Ethiopia')
+   console.log(countries);
+   
+}
+else
+{
+     console.log('Ethiopia');
+     
+}
+
+
+// 5.	In the webTechs array check if Sass exists in the array and
+// if it exists print 'Sass is a CSS preprocess'. 
+//If it does not exist add Sass to the array and print the array.
+
+isSassExiting=webTechs.indexOf("Sass")
+
+if(isSassExiting==-1)
+{
+    console.log('sass is not existing');
+    webTechs.push('Sass')
+    
+}
+else{
+    console.log('sass is already existing');
+    
+}
+
+console.log(webTechs);
+
+
+
+
+
+
+
+// 6.	Concatenate the following two variables and
+// store it in a fullStack variable.
+// 	const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+// 	const backEnd = ['Node','Express', 'MongoDB']
+//	
+// console.log(fullStack)
+// ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+
+const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+const backEnd = ['Node','Express', 'MongoDB']
+
+const fullStack=frontEnd.concat(backEnd)
+console.log(frontEnd);
+console.log(backEnd);
+console.log(fullStack);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

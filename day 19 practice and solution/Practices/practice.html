@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  
+
+function outerFunction()
+{
+  let i=0
+  
+  return function innerFunction()
+  {
+    return i+=1
+  }
+}
+
+let innfun=outerFunction()
+console.log(innfun());
+console.log(innfun());
+console.log(innfun());
+
+// the same code can be written as
+
+function outerONe()
+{
+  let count =0
+
+  function innerOne()
+  {
+    count+=1
+    return count
+  }
+return innerOne
+
+}
+
+let innerfun=outerONe()
+console.log(innerfun());
+console.log(innerfun());
+console.log(innerfun());
+
+// returning the two inner functions written within the outerfuncion
+
+function calculation()
+{
+  let count=2
+
+  function plusOne()
+  {
+    count++
+    return count
+  }
+
+  function minusOne()
+  {
+    count --
+    return count
+  }
+
+  return{
+    plus:plusOne(),
+    minus:minusOne()
+  }
+}
+
+let innerFuns=calculation()
+
+console.log("call to plus-->",innerFuns.plus);
+console.log("call to minus-->",innerFuns.minus);
+
+
+
+
+</script>
+    
+</body>
+</html>

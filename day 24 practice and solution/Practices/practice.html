@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Your Webpage</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("/images/galaxy.gif");
+
+    }
+
+    #galaxy {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: auto;
+      height: 100vh;
+      /* 100% of viewport height */
+      z-index: -1;
+      /* Place the image behind other content */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Calculate a weight of an object on a planet</h1>
+
+    <input type="text" id="mass" placeholder="Mass in Kilogram" />
+    <select>
+      <option value='none'>--select planet-- </option>
+    </select>
+    <button>Calculate weight</button>
+
+  </header>
+
+  <!-- <img  id="galaxy" alt="A beautiful landscape"> -->
+  <img src="/images/earth.png" style="height: 200px;" id="earth" alt="earth here">
+
+  <script>
+    let h1 = document.querySelector('h1')
+    h1.style.color = 'white'
+    h1.style.textAlign = 'center'
+
+    let  divMain=document.createElement('div')
+    divEntery.style.display='flex'
+     
+    divEntery.style.justifyContent='center'
+    divEntery.style.alignItems='center'
+     
+     //  height: 100vh;
+
+    let  divBoxHeader=document.createElement('div')
+     divBoxHeader.style.display='flex'
+    // divBoxHeader.style.width='70%'
+    // divBoxHeader.style.margin='0 auto'
+
+    let input=document.querySelector('input')
+    let option=document.querySelector('option')
+
+    divBoxHeader.appendChild(input)
+    divBoxHeader.appendChild(option)
+
+    divMain.appendChild(divBoxHeader)
+
+    document.body.appendChild(divBoxHeader)
+
+
+    
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

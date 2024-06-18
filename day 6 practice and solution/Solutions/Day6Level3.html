@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB'
+]
+
+const mernStack = ['MongoDB', 'Express', 'React', 'Node']
+//Q1 level 3 
+
+//        let array=[1,2,3,4,5]
+      //Method 1
+    //     let newArray=Array.from(array)
+    //     newArray.push(6)
+    //     console.log(`old array = ${array}`);
+    //     console.log(`new array = ${newArray}`);
+    
+    //   //Method 2
+      
+    //   let newArray1=array.slice(0,array.length)
+    //     newArray1.push(4)
+    //   console.log(`old array = ${array}`);
+    //   console.log(`new array = ${newArray1}`);
+
+//Method 3
+// let newArray2=[];
+// let num
+// for(ele of array)
+// {
+//     num=parseInt(ele)
+//     newArray2.push(num+2)
+    
+// }
+// newArray2.push(23)
+// console.log(newArray2);
+
+// method 4
+            // var originalArray = [1, 2, 3];
+            // var copiedArray = [...originalArray];
+
+            // // Modifying the copiedArray will not affect the originalArray
+            // copiedArray.push(4);
+
+            // console.log(originalArray);  // [1, 2, 3]
+            // console.log(copiedArray);
+
+// 2.	Arrays are mutable. 
+                    //Create a copy of array which does not modify the original.
+                    //Sort the copied array and store in a variable sortedCountries
+
+                    let arr1=[6,1,2,3,4,5]
+                    
+                    let newArray=[...arr1]
+                    console.log(newArray);
+                    sortedCountries=newArray.sort()
+                    console.log('sorted countries=',sortedCountries);
+
+//3 Sort the webTechs array and mernStack array
+
+                    sortedWebTech=webTechs.sort()
+                    sortedMernStack=mernStack.sort()
+
+                    console.log(sortedWebTech);
+                    console.log(sortedMernStack);
+                    
+// 4. Extract all the countries contain the word 'land' 
+//from the countries array and print it as array
+
+const countries = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombi',
+    'Comoros',
+    'Congo (Brazzaville)',
+    'Congo',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (Timor Timur)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia and Montenegro',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+  ]
+
+  let landCountry=[];
+  let hello=0
+  let bye=0
+  let country=""
+  for( country of countries)
+  {
+   // country=countries[i]
+    if(country.includes("land"))
+    {
+        console.log(country);
+        
+        landCountry.push(country)
+    }
+  }
+  console.log(landCountry)
+   
+  // 5. Find the country 
+  //containing the hightest number of characters in the countries array
+  let hightestLengthOfName=0
+  let LongestName=""
+  for(country of countries)
+  {
+    let currentIndex=countries.indexOf(country)
+    let length =country.length
+    {
+      if(length>hightestLengthOfName)
+      {
+        hightestLengthOfName=length
+        LongestName=country
+      }
+    }
+  }
+
+  console.log(`the biggest name is " ${LongestName}  " with length ${hightestLengthOfName} `);
+    
+// 6 Extract all the countries
+// contain the word 'land' from the countries
+// array and print it as array
+
+// statement of q 4 is repeated by mistake (Refer to question 4)
+
+// 7. Extract all the countries containing only four 
+//characters from the countries array and print it as array
+
+ let countriesWithFourLetters=[]
+ for(country of countries)
+ {
+  if(country.length==4)
+  {
+    countriesWithFourLetters.push(country)
+  }
+}
+
+console.log(`countries with length = 4 are "${countriesWithFourLetters}"`);
+ 
+// 8 Extract all the countries containing 
+// two or more words from the countries array and
+//  print it as array
+
+let countryWithTwoOrMoreWords=[]
+let anyCountry=[]
+for(country of countries)
+{
+   anyCountry= country.split(' ')
+   // console.log(` country ${country} lenght = ${anyCountry.length}`);
+   if(anyCountry.length >=2)
+   {
+    console.log(country);
+    
+    countryWithTwoOrMoreWords.push(country.concat("\n"))
+   }
+}
+
+console.log(`countries containing two or more words : ${countryWithTwoOrMoreWords}`);
+
+// 9. Reverse the countries array and capitalize 
+//    each country and stored it as an array
+
+let arrLength=countries.length
+let newarr=[]
+countries1=countries.sort()
+for(let i=arrLength-1;i>=0;i--)
+{
+
+    newarr.push(countries1[i].toUpperCase())
+  
+}
+console.log(newarr);
+
+
+
+
+            
+
+
+
+
+
+
+    </script>
+</body>
+</html>

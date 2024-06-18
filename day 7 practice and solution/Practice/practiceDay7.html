@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+   
+   // function add()
+    // {
+    //     let a=10;
+    //     let b=20
+    //     console.log("a + b =",a+b);
+    // }
+    // add()
+
+//     function fullname()
+//     {
+//         let firstName="Satyawan"
+//         let lastName="Panchal"
+//         let space=" "
+
+//         let fullName=firstName+space+lastName
+//         return fullName
+//         //console.log(fullName);
+//     }
+//    let name= fullname()
+//     console.log(name);
+    
+
+
+//     function addTwo(num1,num2)
+//     {
+//         let total=num1+num2
+//         return total
+//     }
+
+
+//     console.log(addTwo(2,4));
+
+
+//     function any1(firstname,middlename,lastname)
+//     {
+//         return `${firstname} ${middlename} ${lastname}`
+//     }
+
+// console.log(any1("satyawan","ji","panchal"));
+
+// passing an array to a function
+
+ let arr=[11,22,33,44,55,66]
+
+// function sumArr(arr)
+// {
+//     let sum=0
+//     for(ele of arr)
+//     {
+//         sum+=ele
+//     }
+//     return sum
+// }
+// console.log(sumArr(arr))
+
+let sumArr=(arr)=>{
+    let sum=0
+    for(ele of arr)
+    {
+        sum+=ele
+    }
+    return sum
+}
+
+console.log(sumArr(arr));
+
+// any no of arguments passed to it are treated as members of object "arguements"
+
+function passAnyNum()
+{
+    let sum=0
+    for(ele of arguments)
+    {
+        sum+=ele
+    }
+    return sum
+    
+}
+
+console.log('sum=',passAnyNum(1,2,3))
+console.log('sum=',passAnyNum(11,22,33,44,55,66,77,11))
+
+//Doing the same above with args
+
+const sumAllNums=(...args)=>{
+    let sum=0
+    for(ele of args)
+    {
+        sum+=ele
+    }
+    return sum 
+}
+
+console.log('sum=',sumAllNums(1,2,3))
+console.log('sum=',sumAllNums(11,22,33,44,55,66,77,11))
+
+
+
+</script>
+
+</body>
+</html>

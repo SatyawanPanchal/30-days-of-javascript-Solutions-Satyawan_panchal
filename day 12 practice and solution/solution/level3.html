@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Q:1 Write a function which cleans text. Clean the following text. After cleaning, count three most frequent words in the string.
+        
+        let sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`
+        
+function threeMostFrequentWords(paragraph)
+{
+    let arr=paragraph.split(" ")
+    console.log(arr);
+
+    let uniquewords=[]
+
+    arr.forEach(word=>
+    {
+        if(!uniquewords.includes(word))
+        {
+            uniquewords.push(word)
+        }
+    })
+
+    let wordsAndcounts=[]
+    uniquewords.forEach(unique=>{
+        count=0
+        let obj={}
+
+        arr.forEach(ele=>{
+            if(ele===unique)
+            {
+                count+=1
+            }
+        })
+        obj.word=unique
+        obj.count=count
+        wordsAndcounts.push(obj)
+   })
+
+
+   
+
+    wordsAndcounts.sort((a,b)=>{
+        if (a.count>b.count) { return -1  }
+        if (a.count<b.count) { return 1  }
+        return 0
+    })
+
+    return (wordsAndcounts.slice(0,3));
+}
+        
+
+        function cleanText(sent)
+        {
+
+            let Txt= 
+            sent.replace(/[^\b\w+\s\.\b]/g,'')
+            let threeWordsUsed=threeMostFrequentWords(Txt)
+
+            return threeWordsUsed
+            
+        }
+
+       console.log( cleanText(sentence))
+
+ 
+
+
+
+    </script>
+</body>
+</html>

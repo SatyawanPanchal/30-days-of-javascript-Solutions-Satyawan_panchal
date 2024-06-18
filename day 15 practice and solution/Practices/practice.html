@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+      
+
+      class Person
+      {
+        constructor(firstname,lastname,nicname,city,age=430)
+        {
+          this.firstname=firstname
+          this.nicname=nicname
+          this.city=city
+          this.lastname=lastname
+          this.age=age
+          this.skill=[]
+          this.score=0
+        }
+
+        getfullname()
+        {
+          let fullname=this.firstname.toUpperCase()+" " +this.lastname.toUpperCase()
+          return fullname
+        }
+
+        getfirstname()
+        {
+          return this.firstname
+        }
+        getnicname()
+        {
+          return this.nicname
+        }
+
+       getcity()
+        {
+          return this.city
+        }
+
+         getSkills()
+        {
+          return this.skill
+        }
+
+         setCity(city)
+        {
+          this.city=city
+
+        }
+  
+          setskill(skills)
+        {
+          this.skill.push(skills)
+        }
+
+
+        getPersonInfo()           //firstname,lastname,nicname,city,age=430
+        {
+          let firstname=this.getfirstname()
+          
+          let lastname=this.lastname
+          let nicname=this.nicname
+          let city=this.getcity()
+          let age=this.age
+          let score=this.score
+          let skill=this.getSkills()
+          
+          console.log(firstname,lastname,city,age,score,skill);
+          
+        }
+
+        
+      
+      }
+
+      let person=new Person("satyawan","teacher","satya","samalkha")
+      console.log(person.getfullname());
+      //firstname,lastname,nicname,city,age=430
+      let person1=new Person("poonam","panchal","punnu","panipat",age=40)
+
+      person1.setskill("Painting")
+      person1.setskill("teaching")
+
+      console.log("--->",person1.getSkills);
+      person1.getPersonInfo()
+      //
+      console.log(person1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </script>
+
+</body>
+</html>

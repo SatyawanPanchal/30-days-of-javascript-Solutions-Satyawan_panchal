@@ -1,0 +1,100 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript for Everyone:DOM</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Asabeneh Yetayeh challenges in <span id="year">2020</span></h1>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <h2 id="dateNtime"></h2>
+        <ul>
+            <li id="complete_Challenge">30DaysOfPython Challenge Done</li>
+            <li id="ongoing">30DaysOfJavaScript Challenge Ongoing</li>
+            <li id="coming">30DaysOfReact Challenge Coming</li>
+            <li id="coming">30DaysOfFullStack Challenge Coming</li>
+            <li id="coming">30DaysOfDataAnalysis Challenge Coming</li>
+            <li id="coming">30DaysOfReactNative Challenge Coming</li>
+            <li id="coming">30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+
+        <script>
+            // 1.	Develop the following application, use the following HTML elements to get started with. You will get the same code on starter folder. Apply all the styles and functionality using JavaScript only.
+            // o	The year color is changing every 1 second
+            let yr = document.querySelector('#year')
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+
+            setInterval(() => {
+                let color = getRandomColor()
+                yr.style.color = color
+            }, 1000);
+
+            // o	The date and time background color is changing every on seconds
+            const monthNames = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+            const currentDate = new Date();
+
+            // Get various components of the date and time
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth() ; // Months are zero-indexed, so add 1
+            const day = currentDate.getDate();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+ 
+            let formattedDate=`${monthNames[month]} ${day}, ${year} ${hours}:${minutes}:${seconds} `
+            
+            let dateAndTimeElement=document.querySelector('#dateNtime')
+            
+            dateAndTimeElement.innerHTML=formattedDate
+
+             setInterval(() => {
+                
+                let color=getRandomColor()
+                dateAndTimeElement.style.background=color
+             }, 1000);
+
+
+
+// o	Completed challenge has background green
+    let complete_Challenge=document.querySelector('#complete_Challenge')
+             complete_Challenge.style.background='green'
+             
+// o	Ongoing challenge has background yellow
+
+let ongoing=document.querySelector('#ongoing')
+ongoing.style.background='yellow'
+// o	Coming challenges have background red
+let coming=document.querySelectorAll('#coming')
+console.log(coming);
+
+coming.forEach((ele)=>{
+ele.style.background='red'
+})
+
+
+
+
+        </script>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

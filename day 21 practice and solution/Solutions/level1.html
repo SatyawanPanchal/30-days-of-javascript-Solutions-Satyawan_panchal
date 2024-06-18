@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+  </head>
+  <body>
+    
+  <p id="one">Hello ji m in first para</p>
+  <p id="two">m in 2nd para</p>
+  <p id="three">m in 3rd para</p>
+  <p id="four">m in 4th para</p>
+  
+
+    <script> 
+
+            //     Exercise: Level 1
+//1. Create an index.html file and put four p elements as above: Get the first paragraph by using document.querySelector(tagname) and tag name.
+
+let para=document.querySelector('p')
+console.log("1 -->",para.textContent);
+
+  
+
+
+
+//2. Get each of the the paragraph using document.querySelector('#id') and by their id.
+
+     let paraOne=document.querySelector('#one')
+     console.log("2--->",paraOne.textContent);
+
+//3. Get all the p as nodeList using document.querySelectorAll(tagname) and by their tag name
+console.log("3---->");
+
+let para1=document.querySelectorAll('p')
+console.log(para1);
+
+
+//4. Loop through the nodeList and get the text content of each paragraph
+
+
+para1.forEach((ele)=>
+     {
+       console.log(ele.textContent);
+     }) 
+//5. Set a text content to paragraph the fourth paragraph,Fourth Paragraph
+
+para1[3].textContent="fourth para is here"
+
+//6. Set id and class attribute for all the paragraphs using different attribute setting methods
+
+para1[0].id="onePara"
+para1[0].className="classOne"
+
+para1[1].setAttribute('class',"classTwo")
+
+let paraAll=document.querySelectorAll("p")
+console.log(paraAll);
+
+ 
+    
+    
+    
+    </script>
+  </body>
+</html>

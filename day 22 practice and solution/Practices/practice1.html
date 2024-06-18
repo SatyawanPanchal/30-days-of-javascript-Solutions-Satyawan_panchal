@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <script src="/Solutions/level3data.js"></script>
+    <script src="/Solutions/randomcolors.js"> </script>
+</head>
+<body>
+    <!-- Example of a rounded button -->
+     
+</body>
+<script>
+
+let keywords=challenges2020.keywords
+let keywordDiv=document.createElement('div')
+keywordDiv.style.width = '70%';
+keywordDiv.style.margin = '0 auto';
+
+let h1=document.createElement('h1')
+h1.textContent="keywords"
+keywordDiv.appendChild(h1)
+
+
+
+
+
+//keywordDiv.style.
+
+let btnArray=[] 
+
+keywords.forEach(btnText => {
+    let btnKeyword= document.createElement('Button')
+    // setting properties of btn
+{
+    btnKeyword.style.padding='5px 20px'
+    btnKeyword.style.borderRadius='20px'
+    btnKeyword.style.backgroundColor=getRandomColor()
+    btnKeyword.style.color='#fff'
+    btnKeyword.style.textAlign='center'
+    btnKeyword.style.border='none'
+    btnKeyword.textContent=btnText
+}
+btnArray.push(btnKeyword) 
+keywordDiv.appendChild(btnKeyword)
+});
+
+console.log(btnArray);
+
+
+document.body.appendChild(keywordDiv)
+
+
+
+
+
+</script>
+
+</html>

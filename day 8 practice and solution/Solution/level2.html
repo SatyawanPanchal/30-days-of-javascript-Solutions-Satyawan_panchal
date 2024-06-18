@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //   Exercises: Level 2
+        //1. Find the person who has many skills in the users object.
+
+        const users = {
+            Alex: {
+                email: 'alex@alex.com',
+                skills: ['HTML', 'CSS', 'JavaScript'],
+                age: 20,
+                isLoggedIn: false,
+                points: 30
+            },
+            Asab: {
+                email: 'asab@asab.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+                age: 25,
+                isLoggedIn: false,
+                points: 50
+            },
+            Brook: {
+                email: 'daniel@daniel.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+                age: 30,
+                isLoggedIn: true,
+                points: 50
+            },
+            Daniel: {
+                email: 'daniel@alex.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            },
+            John: {
+                email: 'john@john.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+                age: 20,
+                isLoggedIn: true,
+                points: 50
+            },
+            Thomas: {
+                email: 'thomas@thomas.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            },
+            Paul: {
+                email: 'paul@paul.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            }
+        }
+
+        console.log(Object.values(users)[0].skills.length);
+        totalUsers = (Object.keys(users).length);
+        console.log(totalUsers);
+
+        let maxskills = 0
+        indexofMaxSkillsuser = 0
+        for (let i = 0; i < totalUsers; i++) {
+
+
+            let skillsOfAUser = Object.values(users)[i].skills.length
+            console.log(skillsOfAUser);
+
+            if (skillsOfAUser > maxskills) {
+                maxskills = skillsOfAUser
+                indexofMaxSkillsuser = i
+            }
+
+        }
+
+        console.log("person with max skills is ", Object.keys(users)[indexofMaxSkillsuser]);
+
+        console.log("and his skills are ", Object.values(users)[indexofMaxSkillsuser].skills)
+
+        console.log("and his max skills are ", Object.values(users)[indexofMaxSkillsuser].skills.length);
+
+
+        //2. Count logged in users, count users having greater than equal to 50 points from the following object.
+        // we will use total user that we already found by let totalUsers=Object.keys(users)[0]
+
+
+        let loginCount = 0
+        for (let i = 0; i < totalUsers; i++) {
+
+            loginStatus = Object.values(users)[i].isLoggedIn
+
+            if (loginStatus) {
+                loginCount += 1;
+            }
+            console.log(loginStatus);
+
+        }
+        console.log("Total users login are ", loginCount);
+
+        //3. Find people who are MERN stack developer from the users object
+
+        /*Solution Strategy : first we will design a function that will accept the array of skills  return true if the array is having those developement skills, then we will call the function for no of users and we will display the name of them by pushing in array. */
+
+        function isMERNSkilled(arr) {
+            MernString = ''
+            for (ele of arr) {
+                switch (ele) {
+                    case 'MongoDB':
+                        MernString += 'M'
+                        break;
+                    case 'Express':
+                        MernString += 'E'
+                        break
+                    case 'React':
+                        MernString += 'R'
+                        break
+                    case 'Node':
+                        MernString += 'N'
+                        break
+
+                }
+            }
+
+            if (MernString === 'MERN') {
+                return true
+
+            }
+            else {
+                return false
+
+            }
+        }
+
+        function whoAreMernDevelepors(arr) {
+            let arrayOfMERNDevelopers = []       // people who are mern stack develepors
+            // here we will iterate through the keys of Object which are names
+            for (let i = 0; i < totalUsers; i++) {
+                let personSkills = Object.values(users)[i].skills // getting array of skills
+                let isMernDeveloper = isMERNSkilled(personSkills) // calling for check
+                if (isMernDeveloper) {
+                    let name = Object.keys(users)[i]
+                    console.log(name);
+
+                    arrayOfMERNDevelopers.push(name)
+                }
+
+            }
+            console.log("MERN Developers here are ", arrayOfMERNDevelopers);
+
+        }
+
+        whoAreMernDevelepors()
+
+
+        //4. Set your name in the users object without modifying the original users object
+
+        const user1 = {
+            Satyawan:
+            {
+                email: 'satyawan@RoshniEducation.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+                age: 40,
+                isLoggedIn: true,
+                points: 50
+            }
+        }
+
+        Object.assign(users, user1)
+
+        console.log(Object.keys(users));
+
+        //5. Get all keys or properties of users object
+
+        let allProperties = []
+        const userPropertyFinder = Object.values(users)[0]
+        allProperties = Object.keys(userPropertyFinder)
+        //console.log(allProperties);
+
+        for (prop of allProperties) {
+            console.log(prop);
+
+        }
+
+
+
+
+
+        //6. Get all the values of users object
+
+        console.log(Object.values(users)[0]);
+
+
+        //7. Use the countries object to print a country name, capital, populations and languages.
+        const countries = {
+
+            name: "india",
+            capital: "New Delhi",
+            Population: "13500000000",
+            languages: [
+                "Dogri",
+                "Gujarati",
+                "Hindi",
+                "Kannada",
+                "Kashmiri",
+                "Konkani",
+                "Maithili",
+                "Malayalam",
+
+            ]
+        }
+
+        console.log(countries.languages);
+        console.log(Object.values(countries));
+        
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+    localStorage.clear()
+   // Exercises: Level 3
+
+//1. Create an object called personAccount. It has firstname, lastname, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.
+
+let personAccount=
+
+{
+    firstName:"",
+    lastName:"",
+    incomes:new Map(),
+    expenses:new Map(),
+
+    totalIncome:function()
+    {
+        let total=0
+
+        for(let amount of this.incomes.values() )
+        {
+            total+=amount
+        }
+        return total
+    },
+    totalExpense:function()
+    {
+        let total=0
+
+        for (let amount of this.expenses.values())
+        {
+            total+=amount
+        }
+        
+        return total
+        
+    },
+    accountInfo:function()
+    {
+        return `Account information :\n name :${this.firstName} ${this.lastName} ,\n Total Incomes:${this.totalIncome()} ,\n total Expenses : ${this.totalExpense() } `
+    },
+    addIncome:function(detail,amount)
+    {
+        this.incomes.set(detail,amount)
+        
+    },
+    addExpense:function(detail,amount)
+    {
+        this.expenses.set(detail,amount)
+
+        
+    },
+    accountBalance:function()
+    {
+        let totalIncome=this.totalIncome()
+        let totalExpense=this.totalExpense()
+        return totalIncome-totalExpense
+
+    }
+
+}
+
+
+
+// Calling Methods and properties
+
+personAccount.firstName = 'Satyawan';
+personAccount.lastName = 'Panchal';
+
+personAccount.addIncome('Salary', 300000);
+personAccount.addIncome('Freelance', 100000);
+
+personAccount.addExpense('Vehicle', 8000);
+personAccount.addExpense('tea and French Fries', 2000);
+personAccount.addExpense('Utilities', 15000);
+
+console.log(personAccount.accountInfo());
+console.log('Account Balance:', personAccount.accountBalance());
+  
+    </script> 
+
+</body>
+</html>

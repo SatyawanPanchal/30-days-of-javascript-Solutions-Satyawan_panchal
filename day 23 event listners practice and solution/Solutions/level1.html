@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        function numberGenerator(num) {
+            // setting the outer div
+            let outerDiv = document.createElement('div')
+            outerDiv.className = 'outerDiv'
+            outerDiv.style.display = 'flex'
+            outerDiv.style.flexWrap = 'wrap'
+            outerDiv.style.gap = '5px'
+            outerDiv.style.justifyContent = 'center'
+
+
+
+            for (let i = 0; i <= num; i++) {
+                // creating number divs and setting them to the outer divs
+
+                let numberDiv = document.createElement('div')
+                numberDiv.className = 'numberDiv'
+
+                numberDiv.style.display = 'flex'
+                numberDiv.style.width = '50px'
+                numberDiv.style.height = '50px'
+
+                numberDiv.style.justifyContent = 'center'
+                numberDiv.style.alignItems = 'center'
+
+                numberDiv.style.fontSize = '18px'
+                numberDiv.style.border = '1px solid red'
+
+                numberDiv.textContent = i
+
+                numberDiv.style.background = 'yellow'
+
+                if (isPrime(i)) {
+                    console.log(i);
+
+                    numberDiv.style.background = 'red'
+                }
+
+                if (i % 2 === 0) {
+                    numberDiv.style.background = 'green'
+                }
+
+
+
+                outerDiv.appendChild(numberDiv)
+
+            }
+
+            document.body.appendChild(outerDiv)
+        }
+
+
+        {
+            let divForinputAndButton = document.createElement('div')
+            divForinputAndButton.style.display = 'flex'
+            divForinputAndButton.style.justifyContent = 'center'
+            divForinputAndButton.style.margin = '10px'
+
+            let input = document.createElement('input')
+            input.id="input-Number"
+            
+            input.placeholder = "write something here"
+            input.style.padding = '10px 20px'
+            input.style.marginRight = '10px'
+            
+            let btn = document.createElement('button')
+            btn.className='btn-number-generator'
+            btn.textContent = 'Generate Numbers'
+
+
+            divForinputAndButton.appendChild(input)
+            divForinputAndButton.appendChild(btn)
+
+            document.body.appendChild(divForinputAndButton)
+        }
+
+        let button =document.querySelector('.btn-number-generator')
+        let input=document.querySelector('#input-Number')                   
+        console.log(input);
+        
+        let num=0
+        
+        button.addEventListener('click',(e)=>{
+            
+        num=parseInt(input.value)
+        
+        
+        numberGenerator(num)
+        })
+       
+        
+
+
+</script>
+</body>
+
+</html>

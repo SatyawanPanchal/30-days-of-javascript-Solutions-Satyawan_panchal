@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/Solutions/level3data.js"></script>
+    <script src="/Solutions/randomcolors.js"> </script>
+    <style>
+        /* Style for rounded buttons */
+        .rounded-button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            /* Adjust the value to control the roundness */
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // Create the container div
+    let containerDiv = document.createElement('div');
+    containerDiv.style.width = '70%';
+    containerDiv.style.margin = '0 auto';
+    containerDiv.id = 'button-container';
+    document.body.appendChild(containerDiv);
+
+    // Array of keywords
+    let keywords = challenges2020.keywords;
+
+    // Create buttons and add them to the container div
+    keywords.forEach(btnText => {
+        let btnKeyword = document.createElement('button');
+        btnKeyword.className = 'rounded-button';
+        btnKeyword.style.backgroundColor = getRandomColor();
+        btnKeyword.textContent = btnText;
+        containerDiv.appendChild(btnKeyword);
+    });
+
+    // Random color generator
+    function getRandomColor() {
+        // ... your implementation of getRandomColor ...
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const person = {
+      fname: "satyawan",
+      lname: "panchal",
+      profession: "learner",
+      age: 140,
+      location: "india",
+      hobbies: [
+        'cycling',
+        'running',
+        'learning computer skills',
+        'listening to music'
+      ],
+      getFullName:function(){
+        return `${this.fname} ${this.lname}`
+      }
+      
+    }
+
+    console.log(person.profession)
+    console.log(person.getFullName());
+    console.log(person['location']);
+    persone=240
+    console.log(person.age);
+
+   // Demonstration of assign method 
+    person1={
+      nationality:"indian",
+      height:5.8
+    }
+    
+    person2={
+      weight:59,
+      city:"karnal"
+    }
+
+  Object.assign(person,person1,person2)
+
+  console.log(person.city);
+
+  //keys() method
+
+  console.log(Object.keys(person1));
+
+  //values() method
+
+  console.log(Object.values(person));
+
+  //entries() method to print keys and values of the properties
+
+  console.log(Object.entries(person1));
+
+  // hasOwnProperty()   used to see if perticular object has that property ...               e.g. person.hasOwnProperty('city')
+
+  console.log(person.hasOwnProperty('location'));
+
+  
+  
+  
+  
+  
+
+   
+
+
+  </script>
+</body>
+
+</html>

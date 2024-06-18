@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+// 1 Develop a small script which generate any number of characters
+// random id:
+
+// fe3jo1gl124g
+// xkqci4utda1lmbelpkm03rba
+
+let numberOfPasswords=1       //parseInt(prompt("how many password you want to create","enter number"))
+let characherS="123456789abcdefghjkmnpqrstuvwxyz"
+let randomIdArray=[]
+
+for(let i=0;i<numberOfPasswords;i++)
+{
+    let randomNumber=parseInt(Math.random()*10)
+    if(randomNumber<3)
+    {
+        randomNumber=5
+    }
+    let randomId=''
+    
+    for(let j=0;j<randomNumber;j++)
+    {
+        randomChar=characherS.charAt(parseInt(Math.random()*characherS.length))
+        randomId+=randomChar
+    }
+//2    console.log(`random ID : ${randomId}`);
+    
+        randomIdArray.push(randomId)
+}
+
+console.log(randomIdArray)
+
+
+//3 Write a script which generates a random hexadecimal number.
+
+//'#ee33df'
+
+const HexChars= '0123456789ABCDEF';
+let Hexrandom = '#';
+
+for(let i=1;i<5;i++)
+{
+    Hexrandom+=HexChars.charAt(parseInt(Math.random()*HexChars.length))
+}
+console.log(`random HexID: ${Hexrandom}`);
+
+//4 Write a script which generates a random rgb color number.
+
+// rgb(240,180,80)
+
+for(let i=1;i<6;i++)
+{
+let randomNumber1=parseInt(Math.random()*250)
+let randomNumber2=parseInt(Math.random()*250)
+let randomNumber3=parseInt(Math.random()*250)
+
+console.log(`rgb(${randomNumber1},${randomNumber2},${randomNumber3})`)
+}
+
+
+//5.  Using the above countries array, create the following new array.
+
+// ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA",
+// "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+
+const countries = [
+  'Albania',
+  'Bolivia',
+  'Canada',
+  'Denmark',
+  'Ethiopia',
+  'Finland',
+  'Germany',
+  'Hungary',
+  'Ireland',
+  'Japan',
+  'Kenya'
+]
+
+for(let i=0;i<countries.length;i++)
+{
+    countries[i]=countries[i].toUpperCase()
+    //country.toUpperCase()
+}
+console.log( countries);
+
+// 5 Using the above countries array, create an array for countries length'.
+
+//[7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+
+let newArrayOfLength=[];
+
+for(const country of countries )
+{
+    newArrayOfLength.push(country.length)
+}
+newArrayOfLength.pop()
+
+console.log(newArrayOfLength);
+
+//6 Use the countries array to create the following array of arrays:
+
+//   [
+//   ['Albania', 'ALB', 7],
+//   ['Bolivia', 'BOL', 7],
+//   ['Canada', 'CAN', 6],
+//   ['Denmark', 'DEN', 7],
+//   ['Ethiopia', 'ETH', 8],
+//   ['Finland', 'FIN', 7],
+//   ['Germany', 'GER', 7],
+//   ['Hungary', 'HUN', 7],
+//   ['Ireland', 'IRE', 7],
+//   ['Iceland', 'ICE', 7],
+//   ['Japan', 'JAP', 5],
+//   ['Kenya', 'KEN', 5]
+// ]
+
+let firstArrayLength=countries.length
+
+let new2DArray=[]
+
+for(let i=0;i<firstArrayLength;i++)
+{
+    let new1DArray=[]
+    lengthOfCountry=countries[i].length
+    //fetching 1st 3 chars of each country
+    let firstThreeChars=countries[i].slice(0,3)
+    
+    
+    new1DArray.push(countries[i])
+    new1DArray.push(firstThreeChars)
+    new1DArray.push(lengthOfCountry)
+    
+    
+
+    new2DArray.push(new1DArray)
+
+
+}
+console.log(new2DArray);
+
+//7. In above countries array, check if there is a country or countries 
+//containing the word 'land'. If there are countries containing 'land',
+// print it as array. If there is no country containing the word 'land',
+// print 'All these countries are without land'.
+
+//['Finland','Ireland', 'Iceland']
+
+let landCountries=[]
+let withoutlandCountries=[]
+
+for(const country of countries)
+{
+    if(country.toLowerCase().includes('land'))  // because we converted it in uppercase above
+    {                                           // so we used toLowecase() method today
+        landCountries.push(country)
+    }
+    else
+    {
+        withoutlandCountries.push(country)
+    }
+}
+console.log(landCountries);
+console.log(`without land word`);
+console.log(withoutlandCountries);
+
+// 8. In above countries array, check if there is a country or countries end with a 
+//substring 'ia'. If there are countries end with, print it as array.
+// If there is no country containing the word 'ai', 
+//print 'These are countries ends without ia'.
+
+//['Albania', 'Bolivia','Ethiopia']
+
+let endsWithiaCountries=[]
+for(const country of countries)
+{
+    if(country.toLowerCase().endsWith('ia'))  // because we converted it in uppercase above
+    {                                           // so we used toLowecase() method today
+        endsWithiaCountries.push(country)
+    }
+    
+    
+}
+console.log(endsWithiaCountries);
+
+//9. Using the above countries array, find the country containing the biggest number 
+//of characters.
+
+//Ethiopia
+
+
+
+let largestLength=0;
+let countryWithLargestLength=''
+ 
+for(const country of countries)
+{
+    if(country.length>largestLength)  // because we converted it in uppercase above
+    {                                           // so we used toLowecase() method today
+        largestLength=country.length
+        countryWithLargestLength=country
+    }
+    
+    
+}
+
+console.log(`length=${largestLength} country=${countryWithLargestLength}`);
+
+// 9. Using the above countries array, find the country containing only 5 characters.
+
+//['Japan', 'Kenya']
+
+let fiveSizedArray=[]
+
+for (country of countries)
+{
+    if(country.length==5)
+    {
+        fiveSizedArray.push(country)
+    }
+}
+console.log(fiveSizedArray);
+
+//10. Find the longest word in the webTechs array  same as 9th question
+
+// 11.Use the webTechs array to create the following array of arrays:
+
+// [
+//     ["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]
+// ] 
+
+const webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB'
+]
+
+
+
+bigArray=[]
+for(i=0;i<webTechs.length;i++)
+{   let smallArray=[]
+    let lengthOfEle=webTechs[i].length
+    smallArray.push(webTechs[i])
+    smallArray.push(lengthOfEle)
+    bigArray.push(smallArray)
+}
+console.log(bigArray);
+
+//13. An application created using MongoDB, Express, React and Node is called a MERN stack app. 
+//Create the acronym MERN by using the array mernStack
+
+let stackNames=[ "MongoDB", "Express", "React", "Node"]
+acronym=''
+for(let i=0;i<stackNames.length;i++)
+{
+    acronym+=stackNames[i].slice(0,1)
+}
+console.log(acronym);
+
+// 14.Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+// using a for loop or for of loop and print out the items
+
+let arrayOfTechs=["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+
+for(techs of arrayOfTechs)
+{
+    console.log(`${techs}`);
+    
+}
+
+//15. This is a fruit array , ['banana', 'orange', 'mango', 'lemon']
+// reverse the order using loop without using a reverse method.
+
+    let fruitArray=['banana', 'orange', 'mango', 'lemon']
+    let newFruitArray=[]
+    let lengthOfFruitArray=fruitArray.length
+    let ii=0
+    for(let j=lengthOfFruitArray-1;j>=0;j--)
+    {
+
+         newFruitArray.push(fruitArray[j])
+    }
+    console.log(fruitArray);
+    console.log(newFruitArray);
+
+    //16. Print all the elements of array as shown below.
+
+  const fullStack = [
+    ['HTML', 'CSS', 'JS', 'React'],
+    ['Node', 'Express', 'MongoDB']
+  ]
+//   HTML
+//   CSS
+//   JS
+//   REACT
+//   NODE
+//   EXPRESS
+//   MONGODB
+
+let s=0
+
+for(let i=0;i<fullStack.length;i++)
+{
+     for(j=0;j<fullStack[i].length;j++)
+     {
+        console.log(fullStack[i][j]);
+        
+     } 
+}
+         
+console.log(`its over`);
+
+    
+
+</script>
+</body>
+</html>

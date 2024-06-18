@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+ 
+                     //  Exercises Level 3
+
+// Let's try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class. Check the output below.
+
+//,min,max,count,mean,median,mode,variannce,sd,fd
+
+class Statistics
+{
+    constructor(ages)
+    {
+        this.ages=ages
+        console.log(ages);
+    }
+    minFinder()
+    {    
+        return Math.min(...this.ages)
+    }
+
+     maxFinder()
+    {
+        return Math.max(...this.ages)
+    }
+
+     countFinder()
+    {
+        return this.ages.length
+    }
+
+    static MeanFinder(ages)
+    {
+        let arr=[...ages]
+        let sum=0
+        arr.forEach(ele=>{
+             sum+=ele
+            
+        })
+        return (sum/arr.length)
+    }
+
+     medianFinder()
+    {
+        let arr=[...this.ages]
+        let length = (arr.length)
+
+                let mid = Math.floor(length / 2)
+                let median = null
+                if (length % 2 === 0) // if even no of elements in array
+                {
+                    median = (arr[mid] + arr[mid + 1]) / 2
+
+                }
+                else {
+                    median = arr[mid]
+                }
+                return median
+    }
+
+     modeFinder()
+    {
+        let arr=this.ages
+
+        const uniqueAges = ages.filter((age, index, arr) => arr.indexOf(age) === index);
+                let objectCounter = []
+
+                uniqueAges.forEach(ele => {
+                    let objectWithCounts = {}
+                    let count = 0
+                    arr.forEach(member => {
+                        if (ele === member) {
+                            count += 1
+                        }
+                    })
+                    objectWithCounts.number = ele
+                    objectWithCounts.count = count
+                    objectCounter.push(objectWithCounts)
+
+                })
+                //  console.log("no with counts -->",objectCounter);
+
+
+                objectCounter.sort((a, b) => {
+                    if (a.count > b.count) { return -1 }
+                    if (a.count < b.count) { return 1 }
+                    return 0
+
+                })
+
+                // returning the first value of array that contains no 26 with most repeated age
+
+                return Object.values(objectCounter)[0].number
+    }
+
+    static varianceFinder(ages)
+    {
+         
+
+        let arr=[...ages]
+        // To find the variance of the given data, you can follow these steps:
+
+                // Step 1: Find the mean (average) of the data.
+                // Step 2: Subtract the mean from each data point.
+                // Step 3: Square the result of each subtraction.
+                // Step 4: Find the sum of all squared differences.
+                // Step 5: Divide the sum by the total number of data points (population size) to get the variance.
+                let mean = Statistics.MeanFinder(arr)         //statistics.arrMean(arr)
+                let variance = 0
+                let yiSquare = []
+                let sumOfSquaredDifferences = 0
+                arr.forEach(ele => {
+                    yiSquare = (ele - mean) ** 2
+                    //    console.log(yiSquare);
+                    sumOfSquaredDifferences += yiSquare
+
+                })
+
+                variance = sumOfSquaredDifferences / arr.length
+
+                return (variance);
+
+    }
+
+    static sdFinder(ages)
+    {
+        
+        let stDev = Math.sqrt(Statistics.varianceFinder(ages) )
+        return stDev.toFixed(2)
+
+    }
+
+
+
+}
+
+ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+
+let st1= new Statistics(ages)
+
+console.log("min Value--->",st1.minFinder())
+console.log("max Value--->",st1.maxFinder())
+console.log("Count Value--->",st1.countFinder())
+
+
+
+//console.log("mean--->",st1.MeanFinder())
+console.log("median--->",st1.medianFinder())
+console.log("mode-->",st1.modeFinder());
+console.log("variance ---->",Statistics.varianceFinder(ages));
+console.log("standard divsion --->",Statistics.sdFinder(ages));
+
+// 2. Create a class called PersonAccount. It has firstname, lastname, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.
+
+
+class PersonAccount 
+{
+    constructor(firstname, lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.incomes = new Map();    // Map to store incomes and descriptions
+        this.expenses = new Map();   // Map to store expenses and descriptions
+    }
+
+    addIncome(description, amount) {
+        this.incomes.set(description, amount);     // adding to income
+    }
+
+    addExpense(description, amount) {
+        this.expenses.set(description, amount);
+    }
+
+    totalIncome() {
+        let total = 0;
+        for (let amount of this.incomes.values() ) {
+            total += amount;
+        }
+        return total;
+    }
+
+    totalExpense() {
+        let total = 0;
+        for (let amount of this.expenses.values()) {
+            total += amount;
+        }
+        return total;
+    }
+
+    accountInfo() {
+        return `Account Information for ${this.firstname} ${this.lastname}:\n` +
+               `Total Income: ${this.totalIncome()}\n` +
+               `Total Expenses: ${this.totalExpense()}\n` +
+               `Account Balance: ${this.accountBalance()}`;
+    }
+
+    accountBalance()  
+    {
+        return this.totalIncome() - this.totalExpense();
+    }
+}
+
+// Example usage:
+const person = new PersonAccount("John", "Doe");
+person.addIncome("Salary", 3000);
+person.addIncome("Freelance", 500);
+person.addExpense("Rent", 1000);
+person.addExpense("Groceries", 200);
+
+console.log(person.accountInfo());
+
+
+
+
+
+ 
+ </script>
+</html>

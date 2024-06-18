@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="number-container">
+
+    </div>
+
+    <script>
+
+
+        // designing main div
+        let keyNameDiv = document.createElement('div')
+        keyNameDiv.style.flexDirection = 'column'
+        keyNameDiv.style.width='70%'
+        keyNameDiv.className = 'keyName'
+        keyNameDiv.style.display = 'flex'
+        keyNameDiv.style.flexWrap = 'wrap'
+        keyNameDiv.style.gap = '5px'
+        keyNameDiv.style.alignContent = 'center'
+        keyNameDiv.style.justifyContent = 'center'
+        keyNameDiv.style.border='solid 1px red'
+
+        // desinging the name div
+        let name = document.createElement('div')
+        name.className = 'name'
+        name.style.display = 'flex'
+        name.style.width = '50px'
+        name.style.height = '50px'
+        name.style.alignItems = '50px'
+        name.style.fontSize='40px'
+        name.style.color='green'
+
+
+
+        //designing the key code div
+
+        let code = document.createElement('div')
+        code.className = 'code'
+        code.style.display = 'flex'
+        code.style.width = '50px'
+        code.style.height = '50px'
+        code.style.alignItems = '50px'
+        code.style.fontSize='40px'
+        code.style.color='gray'
+
+        // adding these two divs to main div
+
+
+
+        document.body.appendChild(keyNameDiv)
+        keyNameDiv.appendChild(name)
+        keyNameDiv.appendChild(code)
+
+
+
+        document.addEventListener('keydown', (event) => {
+            console.log("key pressed=", event.key, "and code =", event.keyCode);
+            name.textContent = event.key
+            code.textContent = event.keyCode
+        })
+
+
+
+    </script>
+</body>
+
+</html>

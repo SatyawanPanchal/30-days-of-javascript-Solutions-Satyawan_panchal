@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event listners practice </title>
+ </head>
+ 
+ <body>
+
+    <button>Click me</button>
+    <button onclick="clicked()">Click you</button>
+
+    <h1>Data Binding using input or change event</h1>
+<input type="text" placeholder="Write Something">
+
+<p></p>
+
+    <script>
+
+      let input=document.querySelector('input')
+      let p=document.querySelector('p')
+
+      input.addEventListener('input',(e)=>{
+        p.textContent=e.target.value
+
+
+      })
+      
+      let blur=input.addEventListener('blur',(e)=>{
+        p.textContent="Field is reaquired"
+        p.style.color='red'
+      })
+
+      document.body.addEventListener('keypress',(e)=>{
+        p.textContent=(`${e.keyCode} = ${e.target.value}`)
+      })
+
+
+        let btn=document.querySelector('button')
+        let clicked=()=>{
+          alert('click was called')
+         }
+
+         btn.addEventListener('dblclick',(e)=>{
+          alert('the button was double clicked')
+         })
+
+          
+      
+
+
+    </script>
+
+ </body>
+ </html>

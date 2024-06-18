@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <script>
+console.log("welcome to the level 2");
+
+// Q 1 : Write a function called tenMostFrequentWords which get the ten most frequent word from a string?
+
+let paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`
+
+function tenMostFrequentWords(paragraph)
+{
+    let arr=paragraph.split(" ")
+    console.log(arr);
+
+    let uniquewords=[]
+
+    arr.forEach(word=>
+    {
+        if(!uniquewords.includes(word))
+        {
+            uniquewords.push(word)
+        }
+    })
+
+    let wordsAndcounts=[]
+    uniquewords.forEach(unique=>{
+        count=0
+        let obj={}
+
+        arr.forEach(ele=>{
+            if(ele===unique)
+            {
+                count+=1
+            }
+        })
+        obj.word=unique
+        obj.count=count
+        wordsAndcounts.push(obj)
+   })
+
+
+   
+
+    wordsAndcounts.sort((a,b)=>{
+        if (a.count>b.count) { return -1  }
+        if (a.count<b.count) { return 1  }
+        return 0
+    })
+
+    return (wordsAndcounts.slice(0,10));
+}
+
+console.log(tenMostFrequentWords(paragraph))
+
+      
+     </script>
+</body>
+</html>

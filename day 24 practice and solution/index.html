@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/images/galaxy.gif");
+
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #galaxy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: 100vh;
+            /* 100% of viewport height */
+            z-index: -1;
+            /* Place the image behind other content */
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: row;
+            height: 30px;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .planet {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: row;
+            height: auto;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 40px;
+
+        }
+
+        .one {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Welcome to the measurement of wt on different planets</h1>
+    <div class="main">
+        <input class="one" id="inputMass" style="text-align: center;font-size: 18px; background-color: yellowgreen;" placeholder="Enter the mass" type="text">
+        <select class="selectClass" style="font-size: 18px; ">
+             <option>Choose One</option>
+        </select>
+        <button class="one Calculate" style="background:black; color:white;font-Size: 20px;;">Calculate Weight</button>
+    </div>
+
+    <div class="planet">
+        <div>
+            <img class="imageClass" style="height: 70%;" src="/images/mars" alt="Choose Planet">
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <h1 style="text-align: right;">Weight on Planet <span class="planetName" style="color: yellowgreen; font-size: 35px;"></span>  </h1>
+            
+            <button class="CalculatedWeight"
+            style="border-radius:120px;height:250px;width:250px;background:black;color:white; border:none">Calculated Weight here</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+
+let h1 = document.querySelector('h1');
+    h1.style.color = 'white';
+
+    // Array of planet names
+    const planets =["earth", "jupiter", "mars", "mercury", "moon","pluto", "saturn", "uranus","neptune"];
+    const  correspondingG =[9.81, 24.79, 3.72, 3.7, 1.62, 0.58, 10.44,8.69,11.15]
+    
+    let select=document.querySelector('.selectClass')
+    let planetName=document.querySelector(".planetName")
+
+    for(let i=0;i<planets.length;i++)
+    {
+        let option=document.createElement('option')
+        option.textContent=planets[i]
+        select.appendChild(option)
+    }
+
+    let image=document.querySelector('.imageClass')
+
+    let planetSelected=""     // for further reference
+
+    select.addEventListener('change',(event)=>{
+        if(event.target.value==='choose one')
+        {
+            image.alt="choose Planet"
+        }
+       let imagepath=`/images/${event.target.value}.png`          //"/images/mars.png" 
+       image.src= imagepath
+       planetName.textContent=event.target.value.toUpperCase()
+       planetSelected=event.target.value
+
+    })
+
+    let btnCalculateWt=document.querySelector(".Calculate")
+    let displayWeight=document.querySelector(".CalculatedWeight")
+    displayWeight.style.fontSize='28px'
+    // let inputMass=document.querySelector("#inputMass")
+    // let massEntered=parseFloat(inputMass.value)
+    
+    
+    
+
+    btnCalculateWt.addEventListener('click',(event)=>{
+        let inputMass=document.querySelector("#inputMass")
+        let massEntered=parseFloat(inputMass.value)
+        console.log("--> Mass entered",massEntered);
+       if(inputMass.value==="")
+       {
+
+          alert("Enter the mass")
+       }
+       
+       let wt=(massEntered)*(correspondingG[planets.indexOf(planetSelected)].toFixed(2))
+       console.log(wt);
+       
+          
+        displayWeight.innerHTML=`${wt.toFixed(2)} N`
+    })
+ 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Exercises:Level 1
+//1. Display the countries array as a table
+        const countries=['india','japan','nepal','bhutan','germany']
+        console.table(countries)
+
+//2. Display the countries object as a table
+let coutriesObj={
+    name:"india",
+    capital:"NewDelhi"
+    ,pm:"modi",
+    sate:"my Haryana"
+
+}
+
+console.table(coutriesObj)
+
+//3. Use console.group() to group logs
+
+console.group("Main Group");
+console.log("This is a log message within the group.");
+console.warn("This is a warning within the group.");
+console.error("This is an error within the group.");
+console.groupEnd(); // Ends the current group
+
+console.log("This is a log message outside the group.");
+
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="level3data.js"></script>
+    <script src="randomcolors.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #myTable {
+            border: 1px solid black;
+            padding: 2px;
+            margin: 5px;
+            width: 70%;
+            text-align: center;
+            border-spacing: 0px 2px;
+
+        }
+
+        td {
+            width: 30%;
+            vertical-align: super;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="topHeading"> </div>
+    <div class="titleDiv"></div>
+    <div id="dateNtime"></div>
+    <div id="myTable"></div>
+
+     
+
+
+</body>
+
+<script>
+
+    //writing the heading
+    {
+        let headingContainer = document.querySelector(".topHeading")
+        // first of all fetch all the items in different variables
+        let topHeading = challenges2020.description
+        console.log(topHeading);
+
+        let paraHeading = document.createElement('p')
+        paraHeading.style.fontWeight = 'bold'
+        let textNode = document.createTextNode(topHeading)
+
+        let spanYearTxt = document.createElement('span')
+        spanYearTxt.innerText = '2020'
+        spanYearTxt.style.color = 'red'
+        spanYearTxt.style.fontSize = '28px'
+
+        //changing color of year on each second
+        setInterval(() => {
+            let color = getRandomColor()
+            spanYearTxt.style.color = color
+        }, 1000);
+
+        paraHeading.appendChild(textNode)
+        paraHeading.appendChild(spanYearTxt)
+
+        headingContainer.appendChild(paraHeading)
+    }
+
+    // writing 30 days of js challenge
+    {
+        let title = challenges2020.challengeSubtitle
+
+        let titleDiv = document.querySelector('.titleDiv')
+        let para = document.createElement('p')
+        para.textContent = title
+        para.style.textDecoration = 'underline'
+
+        titleDiv.appendChild(para)
+
+    }
+
+    // Writing	The date and time background color is changing every on seconds
+
+    {
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+
+        setInterval(() => {
+            const currentDate = new Date();
+
+            // Get various components of the date and time
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth(); // Months are zero-indexed, so add 1
+            const day = currentDate.getDate();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+
+            let formattedDate = `${monthNames[month]} ${day}, ${year} ${hours}:${minutes}:${seconds} `
+
+            let dateAndTimeElement = document.querySelector('#dateNtime')
+
+            dateAndTimeElement.innerHTML = formattedDate
+
+            let color = getRandomColor()
+            dateAndTimeElement.style.background = color
+        }, 1000);
+
+    }
+
+    //writing the table contents 
+    {
+        // fetching data from given data ....
+        let rowobj = []
+        challenges2020.challenges.forEach(element => {
+            let data = {}
+            data.name = element.name
+            data.topics = element.topics
+            data.status = element.status
+            rowobj.push(data)
+        });
+        let colors = ['green', 'yellow', 'orange']
+
+
+
+        const table = document.getElementById('myTable');
+
+
+        for (let i = 0; i < challenges2020.challenges.length; i++) {
+            const row = document.createElement('tr');
+            row.style.background = colors[i]
+            if (i > 2) {
+                row.style.background = 'orange'
+            }
+
+            let dataOfcol1 = document.createElement('td')
+            dataOfcol1.textContent = rowobj[i].name
+
+            let dataOfcol2 = document.createElement('td')
+            dataOfcol2.textContent = rowobj[i].topics
+
+            let topic = [...rowobj[i].topics]
+            console.log("my array", topic);
+
+            let ul = document.createElement('ul')
+
+            for (let i = 0; i < topic.length; i++) {
+                let li = document.createElement('li')
+                li.textContent = topic[i]
+                ul.appendChild(li)
+            }
+
+            let details = document.createElement('details')
+            let summary = document.createElement('summery')
+            summary.textContent = "Topics"
+            details.appendChild(summary)
+            details.appendChild(ul)
+
+
+
+
+
+            let dataOfcol3 = document.createElement('td')
+            dataOfcol3.textContent = rowobj[i].status
+
+            row.appendChild(dataOfcol1)
+
+            row.appendChild(details)
+
+            row.appendChild(dataOfcol3)
+
+
+
+
+
+            table.appendChild(row);
+        }
+
+    }
+
+    // assigning the icons
+    {
+        let iconDiv = document.createElement('div');
+        iconDiv.style.display = 'inline';
+
+        function createIcon(className) {
+            let icon = document.createElement('i');
+            icon.className = className;
+            icon.style.marginRight = '10px'; // Adjust the spacing as needed
+            return icon;
+        }
+
+        let linkedinIcon = createIcon('fa fa-linkedin');
+        let twitterIcon = createIcon('fa fa-twitter-square');
+        let gitIcon = createIcon('fa fa-github-square');
+
+        iconDiv.appendChild(linkedinIcon);
+        iconDiv.appendChild(twitterIcon);
+        iconDiv.appendChild(gitIcon);
+
+        document.body.appendChild(iconDiv);
+
+
+    }
+
+    // writing the name .. Satyawan Panchal
+    {
+        let nameDiv = document.createElement("div")
+        let namePara = document.createElement('p')
+        namePara.textContent = 'Satyawan Panchal'
+        namePara.style.fontSize = '38px'
+        nameDiv.appendChild(namePara)
+        document.body.appendChild(nameDiv)
+    }
+
+    //writing info para
+    {
+        let txt = challenges2020.author.bio;
+
+        let introDiv = document.createElement('div')
+        let intropara = document.createElement('p')
+        intropara.innerHTML = txt
+        intropara.style.width = '70%'
+        intropara.style.margin = '0 auto'
+        introDiv.appendChild(intropara)
+
+        document.body.appendChild(introDiv)
+
+
+    }
+
+    // tiltes ,skills and Qulifications
+
+
+    //Create the top-level div
+    {
+        function liCreater(symbol, text) {
+
+        }
+
+        let topDiv = document.createElement('div');
+        topDiv.style.display = 'inline-block';
+        topDiv.style.width = '70%'
+
+        // Create a container div for the unordered lists
+        let ulContainer = document.createElement('div');
+        ulContainer.style.display = 'flex'; // Set display to flex for horizontal alignment
+        ulContainer.style.justifyContent = 'space-between'
+
+        // Create the unordered lists for titles, skills, and qualifications
+        let ulTitles = document.createElement('ul');
+        let ulSkills = document.createElement('ul');
+        let ulQualification = document.createElement('ul');
+
+        // creting and adding li in skills
+
+        let skills = challenges2020.author.skills
+        let iconForSkill = '✅'
+        //let skillsicons = ['🌱','💻', '🌐','🔥','📔','💻'];
+
+        for (let i = 0; i < skills.length; i++) {
+            let skillItem = document.createElement("li")
+            skillItem.innerHTML = `${iconForSkill} ${skills[i]}`
+            ulSkills.appendChild(skillItem)
+        }
+
+        // creating and adding the titles 
+
+        let titles = challenges2020.author.titles
+        console.log("tiltes ", titles);
+
+        for (let title of titles) {
+            let titleItem = document.createElement("li")
+            titleItem.innerHTML = `${title[0]} ${title[1]}`
+            ulTitles.appendChild(titleItem)
+
+        }
+
+        // Creating and adding qualifications
+
+        let qualificationData = challenges2020.author.qualifications
+        console.log(qualificationData);
+
+        let qualificationIcons = ['📖', '👨🏼‍🎓', '👨🏼‍🎓', '👨🏼‍🎓', '👨🏼‍🎓', '👨🏼‍🎓', '👨🏼‍🎓']
+        let i = 0
+        for (let qual of qualificationData) {
+            let qualificationItem = document.createElement("li")
+            qualificationItem.innerHTML = `${qualificationIcons[i++]} ${qual}`
+            ulQualification.appendChild(qualificationItem)
+        }
+
+
+        // Append the unordered lists to the container div
+        ulContainer.appendChild(ulTitles);
+        ulContainer.appendChild(ulSkills);
+        ulContainer.appendChild(ulQualification);
+
+        // Append the container div to the top-level div
+        topDiv.appendChild(ulContainer);
+
+        // Append the top-level div to the document body
+        document.body.appendChild(topDiv);
+
+    }
+
+    
+    // displaying the keywords
+
+
+    {
+        let keywords = challenges2020.keywords
+        let keywordDiv = document.createElement('div')
+        keywordDiv.style.width = '70%';
+        keywordDiv.style.margin = '0 auto';
+
+        let h1 = document.createElement('h1')
+        h1.textContent = "Keywords"
+        keywordDiv.appendChild(h1)
+
+        //keywordDiv.style.
+
+        let btnArray = []
+
+        keywords.forEach(btnText => {
+            let btnKeyword = document.createElement('Button')
+            // setting properties of btn
+            {
+                btnKeyword.style.padding = '5px 20px'
+                btnKeyword.style.borderRadius = '20px'
+                btnKeyword.style.backgroundColor = getRandomColor()
+                btnKeyword.style.color = '#fff'
+                btnKeyword.style.textAlign = 'center'
+                btnKeyword.style.border = 'none'
+                btnKeyword.textContent = btnText
+            }
+            btnArray.push(btnKeyword)
+            keywordDiv.appendChild(btnKeyword)
+        });
+
+        console.log(btnArray);
+
+
+        document.body.appendChild(keywordDiv)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

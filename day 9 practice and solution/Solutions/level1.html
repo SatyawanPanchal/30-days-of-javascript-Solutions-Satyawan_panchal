@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+
+// Explain the difference between forEach, map, filter, and reduce.
+// the expalination of the same is given in the doc file attached in the folder
+
+//2. Define a callback function before you use it in forEach, map, filter or reduce.
+
+let arr=[11,2,3,4,5]
+let sum=0
+
+const callback=ele=>{
+    sum+=ele
+}
+
+let arr1=arr.forEach(callback)
+
+//console.log(arr1);      will answer undefined
+
+console.log(sum);
+
+
+// use of map method----
+
+function callbackAmendElement(ele)
+{
+    return ele*2
+}
+
+let arr2=arr.map(callbackAmendElement)
+
+console.log(arr2);    //Array(5) [ 2, 4, 6, 8, 10 ]
+
+// use of filter mehtod
+
+const fileterEvens=ele=>{
+
+    if(ele%2==0)
+    {
+        return ele
+    }
+}
+
+console.log(arr.filter(fileterEvens));
+
+console.log("lets try to print even nos using the filter method");
+
+// making a method to send to reduce method
+
+const reduceTheArray=(ele,acc)=>
+{
+    return ele+acc
+
+}
+
+console.log(arr.reduce(reduceTheArray))
+console.log(arr.reduce(reduceTheArray,3));  // you can offfer the 2nd arguement as the initial value of the array
+
+//3. Use forEach to console.log each country in the countries array.
+const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
+
+countries.forEach(ele =>{
+    console.log(ele)
+})
+
+//4. Use forEach to console.log each name in the names array.
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+
+names.forEach(name=>{
+    console.log(name);
+    
+})
+
+//5. Use forEach to console.log each number in the numbers array.
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+numbers.forEach(num=>{
+    console.log(num);
+    
+})
+
+//6. Use map to create a new array by changing each country to uppercase in the countries array.
+
+console.log(countries.map(country=>country.toUpperCase()))
+
+//7.Use map to create an array of countries length from countries array.
+let arrayofLengths=countries.map(ele=>ele.length)
+console.log(arrayofLengths);
+
+//8.Use map to create a new array by changing each number to square in the numbers array
+
+let sqareArray=numbers.map(ele=>ele**2)
+console.log(sqareArray);
+
+
+//9. Use map to change to each name to uppercase in the names array
+
+//same as 6th
+
+//10 Use map to map the products array to its corresponding prices.
+
+
+const products = [
+  { product: 'banana', price: 3 },
+  { product: 'mango', price: 6 },
+  { product: 'potato', price: ' ' },
+  { product: 'avocado', price: 8 },
+  { product: 'coffee', price: 10 },
+  { product: 'tea', price: '' },
+]
+
+products.map(ele=>{
+
+    if(ele.price!=' ')
+    {
+        console.log(ele.price);
+    }
+})
+
+//11. Use filter to filter out countries containing land.
+
+let landCountries=countries.filter(ele=>
+{
+    return ele.includes('land')
+    
+})
+
+console.log(landCountries);
+
+//12.  Use filter to filter out countries having six character.
+
+let sixLetterCountries=countries.filter(country=>{
+    if(country.length===6)
+    {
+        return country
+    }
+})
+
+console.log(sixLetterCountries);
+
+//13. Use filter to filter out countries containing six letters and more in the country array.
+
+let sixorSevenLetterCountries=countries.filter(country=>{
+    
+    if(country.length>=6)
+    {
+        return country
+    }
+})
+
+console.log(countries);
+
+console.log(sixorSevenLetterCountries);  // no such countries
+
+//13 a. Use filter to filter out country start with 'E';
+let startWithE=countries.filter(country=>{
+    if(country.startsWith('E'))
+    {
+        return country
+    }
+})
+
+console.log(startWithE);  // no such countries
+
+//13 b. Use filter to filter out only prices with values.
+
+console.log(products);
+
+let pricesWithValues=products.filter(ele=>{
+    if(typeof(ele.price)==="number")
+    {
+        return ele.product
+    }
+})
+
+console.log(pricesWithValues);
+
+
+
+
+
+//14. Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
+
+let mixedArray=["Roshni",1,"Satyawan",2,true,"Poonam",true,"Vishu","Satyansh Prakash"]
+
+let getStringLists=mixedArray.filter(ele=>{
+    if(typeof(ele)==="string")
+    {
+        return ele
+    }
+})
+console.log(getStringLists);
+
+
+
+//17. Use reduce to sum all the numbers in the numbers array.
+
+let sum1=numbers.reduce((accu,ele)=>
+{
+    return accu+ele
+},0)
+console.log(sum1);
+
+//18. Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries.
+
+let sentence=countries.reduce( ( acc,ele)=>{
+
+    return acc+ele
+
+})
+
+console.log(sentence);
+
+
+//19. Explain the difference between some and every
+
+//some results true if some elments satisfy that condition
+// every results true if all satisfy the condition
+
+//20. if some of conditions are true then it is ture
+
+let areSomeLand= countries.some(name=>name.includes('land'))
+console.log("are some land",areSomeLand);
+
+
+//21. Use some to check if some names' length greater than seven in names array
+
+let chekLengths=countries.some(contry=>contry.length<7)
+
+console.log("countries with length > 7",chekLengths);
+
+
+
+//22. Use every to check if all the countries contain the word land
+
+let landCountry=countries.every(ele=>ele.includes('land'))
+console.log(landCountry);
+
+
+//23. Explain the difference between find and findIndex.
+
+// find() -->it will check given condtion for each element and returns first element satisfying the condition
+
+// findIndex()---> it will check each element of the array and returns the index of the first element satisfying the condition
+
+//24. Use find to find the first country containing only six letters in the countries array
+
+let countryWithSixLetters=countries.find(ele=>ele.length===7)
+console.log(countryWithSixLetters);
+
+
+//25. Use findIndex to find the position of the first country containing only six letters in the countries array
+let IndexCountryWithSixLetters=countries.findIndex(ele=>ele.length===7)
+console.log(IndexCountryWithSixLetters);
+
+
+
+//26. Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
+
+let posOfNorway=countries.findIndex(ele=>ele==='Norway')
+console.log(posOfNorway);
+
+
+
+
+//27. Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1.
+console.log(countries.findIndex(ele=>ele==='Russia'));
+ 
+    </script>
+</body>
+</html>

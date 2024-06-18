@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <script>
+  // console.log("hello");
+
+  // setTimeout(() => {
+  //   console.log("Printing in each 2 secs");
+    
+  // }, 2000);
+  
+  // console.log("bye ji");
+
+// let myPromise= new Promise(function(resolve,reject){
+
+//   alert("i am in promise")
+//   setTimeout(() => {
+//     let numrand=Math.random()
+// if(numrand<0.5)
+// {
+//   resolve(numrand)
+// }
+// else{
+//   reject(numrand)
+// }
+
+//   }, 2000);
+
+// })
+
+// myPromise
+// .then((result)=>
+// {
+//     console.log("fullfilled :",result);
+// })
+// .catch(error)
+// {
+//   console.log("rejected:",error);
+  
+// }
+
+
+
+
+// let myPromise=new Promise((resolve,reject)=>{
+
+//   console.log("i am in promise");
+
+// setTimeout(() => {
+
+// let rnum=Math.random()
+// if(rnum<0.5)
+// {
+//   resolve(rnum)
+// }
+// else{
+//   reject(rnum)
+// }
+
+// }, 2000);
+
+// })
+
+// myPromise 
+// .then((result)=>{
+//   console.log("fullfilled:",result);
+// })
+// .catch((err)=>{
+//   console.log("error occured:",err);
+  
+// })
+
+// let doPromise=new Promise((resolve,reject)=>{
+//   let skills=['html','css','js']
+
+//   setTimeout(() => {
+//     if(skills.length>2)
+//   {
+//     resolve(skills)
+//   }
+//   else{
+//     reject(skills)
+//   }
+    
+//   }, 2000);
+// })
+//   console.log("do promise");
+  
+// doPromise
+// .then((result)=>{
+//   console.log("fulfilled result=>",result);
+  
+// })
+// .catch((error)=>{
+//   console.log("result rejected =>",error);
+// })
+
+
+// let doPromise = new Promise( (resolve,reject)=>
+// {
+//   console.log("hi i am in promise");
+  
+//   setTimeout(() => {
+    
+//     let skills=['html','css','js']
+//     if(skills.includes('node')){
+//       resolve(skills)
+//     }
+//     else{
+//       reject (skills)
+//     }
+
+
+//   }, 2000);
+
+
+
+// })
+
+// console.log("doing that please hold");
+
+// doPromise
+// .then((result)=>console.log("fullfilled == >",result))
+// .catch((error)=>console.log("rejected=>",error))
+
+// const url1 = 'https://restcountries.com/v2/all' // countries api
+// fetch(url1)
+//   .then(response => response.json()) // accessing the API data as JSON
+//   .then(data => {
+//     // getting the data
+//     console.log(data)
+//   })
+//   .catch(error => console.error(error)) // handling error if something wrong happens
+
+
+// const url='https://restcountries.com/v2/all'
+
+//  fetch(url)
+//  .then((response)=>response.json())
+//  .then((data)=>console.log(data))
+//  .catch((error)=>console.log(error))
+
+
+
+ const square= async function(n)
+{
+            return n*n
+}
+
+const calculateSquare= async function(){
+  let val=await square(3)
+  console.log(val);
+  
+}
+
+calculateSquare()
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </script>
+    
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js files/countries_data.js">
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+
+        let language = [
+
+            "english", "english",
+            "hindi",
+            "Nepali",
+            "punjabi"
+            ,
+            "english",
+            "hindi",
+            "Nepali",
+            "punjabi"
+        ]
+
+        let setOfLanguages = new Set(language)
+        console.log(setOfLanguages);
+        setOfLanguages.add("haryanavi")
+
+        let anotherLangs = [
+            "asami", "telagu", "tamil", "kannad"
+        ]
+
+
+
+        anotherLangs.forEach(lang => {
+            setOfLanguages.add(lang)
+        })
+
+
+        console.log(setOfLanguages)
+
+        setOfLanguages.delete("english")
+        console.log(setOfLanguages
+        );
+
+        console.log("language-->", language);
+
+        const langSet = new Set(language)
+        console.log(langSet);
+        console.log(langSet.size);
+
+        let counts = []
+
+        for (const l of langSet) {
+            const filteredlang = language.filter((lang) => lang === l)
+            counts.push({ lang: l, count: filteredlang.length })
+        }
+
+
+        console.log(counts);
+
+
+        const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26,
+            27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+
+        let agesSet = new Set(ages)
+        let itemcount = []
+        for (age of agesSet) {
+            let filteredItem = ages.filter((item) => item === age)
+            itemcount.push({ item: age, count: filteredItem.length })
+        }
+
+        itemcount.sort((a, b) => {
+            if (a.count > b.count) { return -1 }
+            if (a.count < b.count) { return 1 }
+            return 0
+        })
+
+
+        console.log(itemcount);
+
+        function mostSpokenLanguages( n=10)
+        {
+
+        console.log(countries_data);
+        let allLanguagesSpoken=[]
+        countries_data.forEach((ele)=>{
+            //console.log(ele.languages);
+            allLanguagesSpoken.push(ele.languages) 
+        })
+
+
+        allLanguages=allLanguagesSpoken.toString().split(",") 
+        console.log("All langs --->",allLanguages);
+
+        let languagesSet= new Set(allLanguages)
+        console.log("set ---->",languagesSet);
+        
+        let langcount=[]
+
+        for( language of languagesSet)
+        {
+            let filteredlang=allLanguages.filter((lang)=>language==lang) 
+            langcount.push({language:language , count :filteredlang.length})   
+            
+        } 
+
+        langcount.sort((a, b) => {
+            if (a.count > b.count) { return -1 }
+            if (a.count < b.count) { return 1 }
+            return 0
+        })
+        
+        let formatedArray=[]
+        console.log("==>",langcount);
+
+        for(lang of langcount)
+        {
+             formatedArray.push(`{${lang.language}:${lang.count}}`)
+        }
+        return formatedArray.slice(0,n)
+    }
+
+    console.log(mostSpokenLanguages(10))
+    console.log(mostSpokenLanguages(3));
+    
+    let array1=[1,2,3,4,5]
+    let array2=[3,4,5,6]
+
+    let array1and2=[...array1, ...array2]
+    console.log(array1and2);
+
+    // union of two arrays
+    let C=new Set(array1and2)     
+
+    console.log("Union====>",C);  // set containing unique elements of array1 and array2
+
+    // finding an intersection of two sets
+
+    let A= new Set(array1)
+    let B=new Set(array2)
+
+    interAB =  array1.filter((num)=>B.has(num))
+    let AinterB=new Set(interAB)
+
+    console.log("Intersection ===>",interAB);
+    
+// finding A-B
+
+let AminusB=array1.filter((num)=>!B.has(num))
+console.log("A-B==>",AminusB);
+
+
+
+// maps 
+
+countries = [
+  ['Finland', 'Helsinki'],
+  ['Sweden', 'Stockholm'],
+  ['Norway', 'Oslo'],
+]
+
+// creating an empty map
+
+let myMap= new Map();
+console.log(myMap);
+// creting map from an array countries
+let myMap1=new Map(countries)
+console.log(myMap1);
+
+myMap1.set('india',"New Delhi")
+
+console.log(myMap1);
+console.log(myMap1.get('india'));
+console.log("has india",myMap1.has('india'));
+
+// iterating through the map
+
+for(ele of myMap1)
+{
+    console.log(ele);
+    
+}
+
+
+
+
+    
+    
+        
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

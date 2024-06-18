@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="countries.js"></script>
+</head>
+
+<body>
+    <script>
+        // 1.	Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+        console.log(countries);
+
+        const products = [
+            { product: 'banana', price: 3 },
+            { product: 'mango', price: 6 },
+            { product: 'potato', price: ' ' },
+            { product: 'avocado', price: 8 },
+            { product: 'coffee', price: 10 },
+            { product: 'tea', price: '' },
+        ]
+
+        sum = 0
+
+        let tp = products.filter(ele => typeof (ele.price) === "number").reduce((acc, ele) => acc + ele.price, 0)
+        //.reduce((accu,ele)=>accu+ele)
+        //let ts=tp.
+        console.log(tp);
+
+
+        // 2.	Find the sum of price of products using only reduce reduce(callback))
+
+        console.log(products);
+
+        let sumAllPrices = products.reduce((accu, ele) => {
+            let PriceANumber = Number(ele.price) //(products.values[products.indexOf(ele)].values)
+            return accu + PriceANumber
+        }, 0)
+
+        console.log("2.sum by reduce only --", sumAllPrices);
+
+        // // 3.	Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+
+
+        //3. Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+
+
+        let landcountries = []
+        iacountries = []
+        stanCountries = []
+        islandCountries = []
+
+        function categorizeCountries1() {
+            countries.forEach(country => {
+                if (country.includes('ia')) {
+                    iacountries.push(country)
+                }
+
+                if (country.includes('land')) {
+                    landcountries.push(country)
+                }
+
+                if (country.includes('stan')) {
+                    stanCountries.push(country)
+                }
+
+                if (country.includes('island')) {
+                    islandCountries.push(country)
+                }
+            })
+            let allCountries = []
+            allCountries.push(landcountries)
+            allCountries.push(iacountries)
+            allCountries.push(stanCountries)
+            allCountries.push(islandCountries)
+
+            console.log("Method 1 --->", allCountries);
+
+
+
+
+
+
+        }
+
+        categorizeCountries1()
+
+        //3 using regular expressions 
+
+        function categorizeCountries() {
+
+            const countriesPattern =
+            {
+                'land': [],
+                'ia': [],
+                'island': [],
+                'stan': []
+            }
+            console.log("countries pattern ", countriesPattern);
+
+            const patternChecker = {
+                'land': /land$/i,
+                'ia': /ia$/i,
+                'island': /island$/i,
+                'stan': /stan$/i
+            }
+
+            countries.forEach(country => {
+                for (pattern in countriesPattern) {
+
+                    if (patternChecker[pattern].test(country)) {
+                        countriesPattern[pattern].push(country)
+                        break
+                    }
+                }
+
+            });
+
+            return countriesPattern
+        }
+
+        console.log("3 Method 2--->", categorizeCountries());
+
+
+        // 4.	Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
+
+        function initialLettersOfCountries() {
+            let newCountries = ["Albania", "Bolivia", "Canada", "Denmark", "Hindustan", "Afghanistan", "Finland", "Germany", "Hindustan", "Hungary", "Ireland", "kajakistan", "kenya"]
+
+            let countryObject = {}  // for placing countries initial letter and countries array starting with that letter
+            let countryCounterWithLetters = {} // object for placing the no letter and no of times array is occuring with the letter
+
+
+            newCountries.forEach(country => {
+
+                countryObject[country.charAt(0)] = []
+
+            })
+
+            for (const counts in countryObject) {
+
+                newCountries.forEach(element => {
+                    if (counts === element.charAt(0)) {
+                        countryObject[counts].push(element)
+                    }
+                });
+
+
+            }
+            let i = 0
+            for (letters in countryObject) {
+                let summary = []
+                // finding the lenght of each item
+                let currentLetter = Object.keys(countryObject)[i]
+                let noOfTimesOccuring = Object.values(countryObject)[i].length
+                let countriesOccuring = Object.values(countryObject)[i]
+
+                //console.log(currentLetter,noOfTimesOccuring,countriesOccuring);
+
+                summary.push(currentLetter)
+                summary.push(noOfTimesOccuring)
+                summary.push(countriesOccuring)
+                i += 1
+                countryCounterWithLetters[i] = summary
+            }
+
+            return (countryCounterWithLetters);
+
+
+        }
+
+        console.log(initialLettersOfCountries());
+
+
+
+
+
+        // 5. Declare a getFirstTenCountries function and return an array of ten countries. Use different functional programming to work on the countries.js array
+
+        const newCountries = [
+            "Albania", "Bolivia", "Canada", "Denmark", "Hindustan",
+            "Afghanistan", "Finland", "Germany", "Hindustan", "Hungary",
+            "Ireland", "kajakistan", "kenya"
+        ];
+
+        // Function to get the first ten countries
+        function getFirstTenCountries() {
+            return newCountries.slice(0, 10);
+        }
+
+        console.log(getFirstTenCountries());
+
+        // Functional programming on newCountries array
+        // 1. Uppercase all countries
+        const uppercaseCountries = newCountries.map(country => country.toUpperCase());
+        console.log(uppercaseCountries);
+
+        // 2. Filter countries containing "land"
+        const landCountries = newCountries.filter(country => country.includes("land"));
+
+        console.log(landCountries);
+
+        // 3. Check if any country starts with "Hind"
+
+        const hasHindCountry = newCountries.some(country => country.startsWith("Hind"));
+        console.log(hasHindCountry);
+
+        // 4.Count the number of countries that end with "stan"
+        const stanCount = newCountries.reduce((count, country) => {
+            return count + (country.endsWith("stan") ? 1 : 0);
+        }, 0);
+        console.log(stanCount);
+
+        const stans = newCountries.reduce((count, country) => {
+            return count + (country.endsWith("stan") ? 1 : 0);
+        }, 0);
+
+        console.log(stans);
+
+
+
+        // 6.	Declare a getLastTenCountries function which returns the last ten countries in the countries array.
+
+        totalcountries = newCountries.length
+
+        let getLastTenCountries = newCountries.slice(-10)
+        console.log(getLastTenCountries);
+
+
+
+        // 7.Find out which letter is used many times as initial for a country name from the countries array (eg. Finland, Fiji, France etc)
+
+        let arr = [1, 2, 2, 2, 2,3,3,3,3, 3, 4, 5, 5, 4]
+
+        let uniqueArr = []
+        let elementCounter=[] 
+        function isMemberOfArr(member) 
+        {
+
+        
+             for(ele of uniqueArr) 
+             {
+                 if (member == ele) {
+                    
+                    
+                    return true
+
+                }
+            }
+            return false
+        }
+        
+         
+         
+
+        arr.forEach(ele => {
+
+            if (isMemberOfArr(ele)) {
+
+            }
+            else {
+                uniqueArr.push(ele)
+            }
+
+        })
+
+        
+        for(ele of uniqueArr)
+         {
+            let max=0
+            let max1
+
+            arr.forEach(element=>{
+                if(ele===element)
+                {
+                    max+=1
+                }
+            })
+            elementCounter.push(max)
+
+         }
+        // console.log("==>",elementCounter);
+         
+         let indexOfMax=elementCounter.indexOf(Math.max(...elementCounter))
+         console.log("element occuring most is ",uniqueArr[indexOfMax]);
+         
+         
+
+    </script>
+</body>
+
+</html>

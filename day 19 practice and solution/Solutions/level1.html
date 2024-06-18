@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+
+// Exercises: Level 1
+//1. Create a closure which has one inner function
+
+    function myOuterFun()
+    {
+        count =5
+        function add2Tocount()
+        {
+            count+=2
+            return count
+        }
+        return add2Tocount
+
+    }
+
+    let myfun=myOuterFun()
+    console.log(myfun());
+    
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Charts Horizontal Bar Chart</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable(
+        [
+        ['Title', 'Value'],
+        ['Bar 1', 75],
+        ['Bar 2', 90],
+        ['Bar 3', 60],
+        ['Bar 4', 100]
+      ]);
+
+
+      var options = {
+        chartArea: { left: 100, top: 20, width: '60%', height: '80%' },
+        hAxis: {
+          title: 'Value',
+          minValue: 0,
+          maxValue: 100
+        },
+        vAxis: {
+          title: 'Title'
+        },
+        bars: 'horizontal'
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+</head>
+<body>
+  <div id="barchart" style="width: 600px; height: 300px;"></div>
+</body>
+</html>

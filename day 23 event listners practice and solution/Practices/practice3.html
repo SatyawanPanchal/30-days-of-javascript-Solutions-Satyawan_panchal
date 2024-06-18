@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the grid container */
+        
+        .number-grid 
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        /* Style for number elements */
+        .number {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center; /*  for horizontal alignment */
+            align-items: center;
+            border: 1px solid #ccc;
+            font-size: 18px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="number-grid" id="number-container"></div>
+
+<script>
+    // Create an array of 100 numbers
+    let numbers = Array.from({ length: 100 }, (_, index) => index + 1);
+
+    // Get the number container element
+    let numberContainer = document.getElementById('number-container');
+
+    // Populate the container with number elements
+    numbers.forEach(number => {
+        let numberElement = document.createElement('div');
+        numberElement.classList.add('number');
+        numberElement.textContent = number;
+        numberContainer.appendChild(numberElement);
+    });
+</script>
+
+</body>
+</html>

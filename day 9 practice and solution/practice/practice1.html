@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let nums = [12, 13, 14, 15, 16, 17]
+
+        nums.forEach((element, index, nums) => {
+
+            console.log(nums);
+
+        })
+
+        function expo(a, b) {
+            return Math.pow(a, b)
+        }
+
+        console.log(expo(2, 3));
+        let a4 = 9
+        a5 = 12
+        let as = function sum(a4, a5) {
+            return a4 + a5
+
+        }
+
+        //a.sum(4,5)
+
+        console.log(as);
+
+
+        function powerTwo(n) {
+            return n ** 2
+        }
+
+        function powerThree(n, powerTwo) {
+            let sq = powerTwo(n)
+            return n * sq
+        }
+
+        function powerFour(n, powerThree) {
+            let pow3 = powerThree(n, powerTwo)
+            pow4 = n * pow3
+            return pow4
+        }
+
+        function powerFive(n, powerFour) {
+            let pow4 = n * powerFour(n, powerThree)
+            pow5 = n * pow4
+            return pow5
+        }
+
+        let num = 5
+
+        console.log(powerFive(num, powerFour));
+
+
+        const callback = n => {
+            return n ** 2
+        }
+
+        const cube = (callback, n) => {
+            return callback(n) * n
+        }
+
+        const powerFor = (cube, n) => {
+            return cube(callback, n) * n
+        }
+
+        const powerfi = (powerFor, n) => {
+            return powerFor(cube, n) * n
+        }
+        console.log(powerfi(powerFor, 3));
+
+        // // const higherOrder = n => {
+        // //   const doSomething = m => {
+        // //     const doWhatEver = t => {
+        // //       return 2 * n + 3 * m + t
+        // //     }
+        // //     return doWhatEver
+        // //   }
+        // //   return doSomething
+        // // }
+        // // console.log(higherOrder(2)(3)(10))
+
+
+        // function higherOrder(n)
+        // {
+        //     function doSomething(m)
+        //     {
+        //         function doWhatEver(t)
+        //         {
+        //             console.log("-->");
+
+        //             return (2*n+3*m+t)
+        //         }
+        //         return doWhatEver
+        //     }
+        //     return doSomething
+        // }
+        // console.log(higherOrder(2)(3)(10))
+
+        funOne = (one) => {
+            const funtwo = (two) => {
+                const funThree = (three) => {
+                    return (one * two * three)
+                }
+                return funThree
+            }
+            return funtwo
+        }
+
+        console.log(funOne(2)(3)(10));
+
+
+
+        // let sum = 0;
+        // const numbers = [1, 2, 3, 4, 5];
+        // numbers.forEach(num => sum += num)
+
+        // console.log(sum)
+
+        let sum = 0
+        let numbers = [1, 2, 4, 56, 7, 5]
+
+        numbers.forEach(x => sum += x)
+        console.log(sum);
+        let newCountries = []
+        const countries = ['Finland', 'Denmark', 'Sweden', 'Norway', 'Iceland']
+
+        countries.forEach(x => console.log(x.toUpperCase()))
+
+        countries.forEach(x => {
+            newCountries.push(x.toUpperCase())
+        })
+
+
+        console.log(newCountries);
+
+        // set time interval after which we can call a function
+
+        function sayHello() {
+            console.log("jai shri ram");
+
+
+        }
+
+        //setInterval("sayHello",1000)
+        setTimeout(sayHello, 2000)
+
+
+        let arrToSort = [1, 2, 21, 34, 33, 22, 11, 1, 2]
+        // sort in increasing order
+        arrToSort.sort(function (a, b) {
+            return a - b
+        })
+
+        console.log("sorted -->", arrToSort);
+        // sort in decreasing order
+        arrToSort.sort((a, b) => b - a)
+
+        console.log(arrToSort);
+
+        // sorting an objects
+
+        const people = [
+            { name: "satyawan", age: 43 },
+            { name: "poonam", age: 40 },
+            { name: "Roshni", age: 75 },
+            { name: "varsha", age: 18 },
+            { name: "satyaansh Prakash", age: 8 }
+        ]
+        console.log(people);
+
+        people.sort((a,b)=>{
+            if(a.age>b.age) return 1
+            if(a.age<b.age) return -1
+            return 0
+        })
+
+        console.log(people);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

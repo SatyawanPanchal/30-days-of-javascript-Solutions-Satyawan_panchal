@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+//         Exercises: Level 3
+//1. Create a personAccount out function. It has firstname, lastname, incomes, expenses inner variables. It has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance inner functions. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.
+
+function personAccount(fname,lname)
+{
+    let firstname=fname
+    let lastname=lname
+    let incomes=new Map()
+    let expenses= new Map()
+ 
+    function addIncome(description,money)
+    {
+            incomes.set(description,money)
+    }
+    function addExpense(description,money)
+    {
+        expenses.set(description,money)
+    }
+
+    function totalIncome()
+    {
+         
+        let total=0
+        
+        for(let amount of incomes.values())
+         {
+             
+            total+=amount
+
+         }
+          
+         return total
+    }
+    
+    function totalExpense()
+    {
+         
+        let total=0
+         for(let amount of expenses.values())
+         {
+            total+=amount
+
+         }
+
+         return total
+
+        
+    }
+    function accountInfo() 
+    {
+         
+        return ` \n\n name :${firstname} ${lastname} ,\n Total Incomes:${totalIncome()} ,\n total Expenses : ${totalExpense() } `
+        
+    }
+    function accountBalance(){
+        balance=totalIncome()-totalExpense()
+        return balance
+    }
+ 
+    return{
+        totalIncome:totalIncome,
+        totalExpense:totalExpense,
+        accountBalance:accountBalance,
+        accountInfo:accountInfo,
+        addIncome:addIncome,
+        addExpense:addExpense
+
+    }
+
+}
+
+let funs=personAccount('satyawan','teacher')
+
+funs.firstname="satyawan"
+funs.lastname="teacher"
+
+funs.addIncome('school',50000)
+funs.addIncome('free lanching',500000)
+
+funs.addExpense('clothing',10000)
+funs.addExpense('traveling',12000)
+
+console.log(funs.totalExpense())
+console.log(funs.totalIncome());
+
+
+
+ 
+
+console.log("Total Income -->\n",funs.totalIncome());
+console.log("Total Expenses -->\n",funs.totalExpense());
+
+console.log("Acconts info -->\n",funs.accountInfo());
+console.log("Account Balance -->",funs.accountBalance());
+
+
+
+
+
+
+
+
+    
+    </script>
+</body>
+
+</html>

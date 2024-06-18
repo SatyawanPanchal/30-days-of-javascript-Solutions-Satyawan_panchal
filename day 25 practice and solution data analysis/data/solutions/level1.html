@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<progress value="50" max="100"></progress>    
+<button class="btn">click Me</button>
+<script>
+    
+    let value=0
+
+
+let progress=document.querySelector("progress")
+
+     document.querySelector('.btn').addEventListener('click',(event)=>{
+       
+       valueIncreament()
+     })
+
+     function valueIncreament()
+     {
+        setTimeout(() => 
+        {
+            progress.value=value+=5
+                
+        }, 1000);
+
+     }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+
+      // Level 2
+      //1. Create a closure which has three inner functions
+    
+      function calculations()
+      {
+         let a=10
+         let b=20
+         function addFun()
+         {
+            return a+b
+
+         }
+         function subtractFun()
+         {
+            return b-a
+         }
+         function multiplyFun()
+         {
+            return a*b
+
+         }
+
+         return{
+                  add:addFun,
+                  subtract:subtractFun,
+                  multiply:multiplyFun
+         }
+
+      }
+
+      let funs=calculations()
+
+      console.log("add -->",funs.add());
+      console.log("Subtract -->",funs.subtract());
+      console.log("Multiply --->",funs.multiply());
+      
+      
+      
+
+   </script>
+</body>
+</html>
+
+

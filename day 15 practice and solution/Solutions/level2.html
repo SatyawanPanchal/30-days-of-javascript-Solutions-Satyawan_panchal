@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+//1.Override the method you create in Animal class
+
+// for completing this question we need to take the Animal class made in level 1 and here we have taken a method saySomething() we will override this method
+
+
+
+class Animal{
+        constructor(name, age, color, legs)
+        {
+            this.age=age
+            this.color=color
+            this.legs=legs
+            this.name=name
+        }    
+
+        getage()
+        {
+            return this.age
+        }
+        getColor()
+        {
+            return this.color
+        }
+        getLegs()
+        {
+            return this.legs
+        }
+
+        getName()
+        {
+            return this.name
+        }
+
+        getAnimalInfo()
+        {
+            let name=this.getName()
+            let age=this.getage()
+            let color=this.getColor()
+            let legs=this.getLegs()
+
+            console.log(`hi may pet name is ${name} his age is ${age} his color is ${color} and he has ${legs} legs `);
+            
+        }
+
+        saySomething()
+        {
+            return "i am an Animal"
+        }
+
+
+    }
+
+    let myAnimal=new Animal(
+        "shankar",2,"brown",4
+    )
+
+    myAnimal.getAnimalInfo()
+
+
+    class Cat extends Animal
+    {
+        saySomething()
+        {
+            console.log("hi i am cat here");
+            
+        }
+
+    }
+
+    let myCat = new Cat()
+    myCat.saySomething()
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1.	Read the cats api and find the average weight of cat in metric unit.
+        
+        const countriesAPI = 'https://restcountries.com/v2/all'
+        const catsAPI = 'https://api.thecatapi.com/v1/breeds'
+
+        fetch(catsAPI)
+            .then((Response) => Response.json())
+            .then((data) => {
+                let wt = []
+                let avgwt = []
+                console.log(data);
+
+                data.forEach(cat => {
+                    let wtobj = (cat.weight.metric.split('-'))
+                    wt.push(wtobj)
+                    let num1 = parseFloat(wtobj[0])
+                    let num2 = parseFloat(wtobj[1])
+                    let avg = (num1 + num2) / 2
+                    avgwt.push(avg)
+
+                });
+                console.log("-->", wt);
+                console.log("avg wt --> ", avgwt);
+
+
+
+
+            })
+            .catch((error) => console.log(error))
+// 2.	Read the countries api and find out the 10 largest countries
+
+// fetch(countriesAPI)
+// .then((Response)=>Response.json())
+// .then((data)=>{
+// console.log(data);
+// let countryAndArea=[]
+// //let countriesArea=data.map(country=>country.area)
+
+// data.forEach((country)=>{
+// countryAndArea.push( {'country':country.name,'area':country.area} )
+// })
+// console.log(countryAndArea);
+
+// countryAndArea.sort((a,b)=>{
+//     if(a.area>b.area) {return -1}
+//     if(a.area<b.area) {return 1}
+//     return 0
+// })
+// console.log("10 largest areas --> ",countryAndArea.slice(0,10));
+
+// })
+// .catch((err)=>console.log(err))
+
+
+
+
+// 3.	Read the countries api and count total number of languages in the world used as officials.
+
+
+fetch(countriesAPI)
+.then((Response)=>Response.json())
+.then((data)=>{
+console.log(data);
+let countrylangsobjs=[]
+//let countriesArea=data.map(country=>country.area)
+
+data.forEach((country)=>{
+ countrylangsobjs.push(country.languages)
+})
+ 
+console.log('countery ---langs',countrylangsobjs);
+
+let allLangs=[]
+
+countrylangsobjs.forEach((lang)=>{
+
+    lang.forEach((lang)=>{
+        allLangs.push(lang.name)
+        
+    })
+
+    
+    
+
+})
+
+let mylangs=new Set()
+    mylangs=[...allLangs]
+    console.log("all langs spoken are --->",mylangs);
+})
+.catch((err)=>console.log(err))
+
+
+    </script>
+</body>
+
+</html>

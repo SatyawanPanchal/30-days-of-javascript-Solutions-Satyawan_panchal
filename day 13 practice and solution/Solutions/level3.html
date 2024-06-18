@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+     //Q:1----> Check the speed difference among the following loops: while, for, for of, forEach
+     
+     console.time("time for while loop")
+
+     let i=1
+     while(i<10)
+     {
+        console.log("in while loop");
+        
+        i+=1
+     }
+     console.timeEnd("time for while loop")
+
+     
+
+     //time for for() loop
+     console.time("time for() loop")
+     for(let i=1;i<10;i++)
+     {
+        console.log("in while loop");
+              
+     }
+     console.timeEnd("time for() loop")
+// timer for forof loop
+
+console.time("for of loop() timer ---->")
+
+let x=[0,1,2,3,4,5,6,7,8,9]
+
+for(ele of x)
+{
+    console.log(ele);
+    
+}
+
+
+
+console.timeEnd("for of loop() timer ---->")
+     
+// timer for forEach loop
+
+console.time("for of loop() timerEnd ---->")
+
+x.forEach(ele=>{
+    console.log(ele);
+    
+})
+
+
+console.timeEnd("for of loop() timerEnd ---->")
+     
+
+    </script>
+</body>
+</html>

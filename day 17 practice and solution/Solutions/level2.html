@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+
+//1. Create a student object. The student object will have first name, last name, age, skills, country, enrolled keys and values for the keys. Store the student object in your browser localStorage.
+localStorage.clear()
+let student={
+
+    name:"satyawan",
+    age : 300,
+    skills:['html','cycling','programming','maths'],
+    country:"india",
+    enrolled:true
+}
+
+let JSONStudent=JSON.stringify(student,undefined,4)
+localStorage.setItem('studentObj',JSONStudent)
+console.log(localStorage);
+
+
+
+
+
+ 
+
+
+
+   </script>
+</body>
+</html>
+
+

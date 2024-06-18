@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    // Exercises: Level 3
+
+    //1. Create an object literal called personAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is a set of incomes and its description.
+
+    const personAccount = {
+
+      //Properties
+      firstName: "satyawan",
+      lastName: "learner",
+      incomes: [],
+      expenses: [],
+      //Methods
+      totalIncome: function () {
+
+      },
+      totalExpense: function () {
+
+      },
+      accountInfo: function () {
+
+      },
+      addIncome: function () {
+
+      },
+      addExpense: function () {
+
+      },
+      accountBalance: function () {
+
+      }
+
+    }
+
+
+
+    //**** Questions:2, 3 and 4 are based on the following two arrays:users and products ()
+    const users = [
+      {
+        _id: 'ab12ex',
+        username: 'Alex',
+        email: 'alex@alex.com',
+        password: '123123',
+        createdAt: '08/01/2020 9:00 AM',
+        isLoggedIn: false
+      },
+      {
+        _id: 'fg12cy',
+        username: 'Asab',
+        email: 'asab@asab.com',
+        password: '123456',
+        createdAt: '08/01/2020 9:30 AM',
+        isLoggedIn: true
+      },
+      {
+        _id: 'zwf8md',
+        username: 'Brook',
+        email: 'brook@brook.com',
+        password: '123111',
+        createdAt: '08/01/2020 9:45 AM',
+        isLoggedIn: true
+      },
+      {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt: '08/01/2020 9:50 AM',
+        isLoggedIn: false
+      },
+      {
+        _id: 'ghderc',
+        username: 'Thomas',
+        email: 'thomas@thomas.com',
+        password: '123333',
+        createdAt: '08/01/2020 10:00 AM',
+        isLoggedIn: false
+      }
+    ];
+
+
+
+    // Imagine you are getting the above users collection from a MongoDB database. 
+    // a. Create a function called signUp which allows user to add to the collection. If user exists, inform the user that he has already an account.
+
+    let newUser = {
+      _id: "ram"
+
+      ,
+      username: "jai shriram",
+      email: "sitaram@gmail.com",
+      password: "sitey",
+      createdAt: now = new Date(),
+      isLoggedIn: false,
+
+
+    };
+
+    function signUp(username, userid, pass) {
+      if (newUser.username === username) {
+        console.log("user already exists");
+
+      }
+      else {
+        console.log(`welcome ${username}`);
+
+        console.log(users.push(newUser))
+      }
+    }
+
+
+
+    signUp('shri ram', "ramsita@gmail.com", "sitey")
+    console.log(users);
+
+
+
+
+    //2 b. Create a function called signIn which allows user to sign in to the application
+
+    function signIn(username, pass) {
+
+      let noOfItemsinObject = Object.keys(users).length
+      let matchFound = false
+      let nameMatched = ""
+      //console.log(noOfItemsinObject);
+      for (let i = 0; i < noOfItemsinObject; i++) {
+        let user = Object.values(users)[i].username
+        let password = Object.values(users)[i].password
+
+
+
+        if (username == user && password == pass) {
+
+          matchFound = true
+          nameMatched = username
+
+        }
+
+      }
+
+      if (matchFound) {
+        console.log("you are logged in => ", nameMatched);
+
+      }
+
+
+    }
+    let user = "jai shriram"
+    pass = "sitey"
+    signIn(user, pass)
+
+    //3 The products array has three elements and each of them has six properties.
+    // a. Create a function called rateProduct which rates the product 
+
+
+    const products =
+      [
+        {
+          _id: 'eedfcf',
+          name: 'mobile phone',
+          description: 'Huawei Honor',
+          price: 200,
+          ratings: [
+            { userId: 'fg12cy', rate: 5 },
+            { userId: 'zwf8md', rate: 4.5 }
+          ],
+          likes: []
+        },
+        {
+          _id: 'aegfal',
+          name: 'Laptop',
+          description: 'MacPro: System Darwin',
+          price: 2500,
+          ratings: [],
+          likes: ['fg12cy']
+        },
+        {
+          _id: 'hedfcg',
+          name: 'TV',
+
+          description: 'Smart TV:Procaster',
+          price: 400,
+          ratings: [{ userId: 'fg12cy', rate: 5 }],
+          likes: ['fg12cy']
+        }
+      ]
+
+
+    //make your ratings here
+
+
+
+
+
+    console.log("let me try to print a single element");
+    console.log('at place ' + Object.values(products)[1].name);
+
+    let ratingArray = []
+    let productNamesArray = []
+    // we have to find the name of prouct then push an object myRating(containing id and rating) into that object
+
+    function rateProduct(userid, product, rate) {
+      //-----------Prepare your own rating object to push--------
+
+      let myRating = {
+        id: userid,
+        ratings: rate
+      }
+
+      for (ele of products) {
+        let currentProductName = products[products.indexOf(ele)].name
+
+        if (product === currentProductName) {
+          // lets get rating array of current product with index of product
+          let indexOfProduct = products.indexOf(ele)
+          let ratingArrayOfProduct = Object.values(products)[indexOfProduct].ratings
+          // now pushing your ratings in the array
+          ratingArrayOfProduct.push(myRating)
+
+
+        }
+        console.log(products);
+
+      }
+    }
+    let uid = "x279Satyawan"
+    prod = 'Laptop'
+    ratE = 4.7
+    rateProduct(uid, prod, ratE)
+
+
+
+
+    //b. Create a function called averageRating which calculate the average rating of a product 
+
+    function averageRating(nameOfProduct) 
+    {
+      let currentRatingArray=[]
+      for (ele of products) 
+      {
+        
+        let currentProductName = products[products.indexOf(ele)].name
+         currentRatingArray = products.values
+        
+        if(nameOfProduct===currentProductName)
+        {
+          currentRatingArray=Object.values(products)[products.indexOf(ele)].ratings
+          console.log(currentRatingArray);
+          
+          break
+        }
+      }
+      
+      let sumOfRating=0
+      for(rating of currentRatingArray)
+      {
+        let currentRating=Object.values(currentRatingArray)[currentRatingArray.indexOf(rating)].rate
+        
+        sumOfRating+=currentRating
+      }
+
+      let average=sumOfRating/(currentRatingArray.length)
+      return average
+    }
+
+    ProductName = 'mobile phone'
+    console.log(`rating of ${ProductName} = ${averageRating(ProductName)}`);
+  
+
+    //4 Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was unliked.
+    
+    function likeProduct(likersId,productToBeLiked)
+    {
+      let likes=[] //
+      
+      for(ele of products)
+      {
+        let productName=Object.values(products)[products.indexOf(ele)].name
+        likes=Object.values(products)[products.indexOf(ele)].likes
+        console.log(productName);
+        if(productName===productToBeLiked)
+        {
+          likes.push(likersId)
+          console.log(Object.values(products)[products.indexOf(ele)].likes);
+          
+        }
+
+      }
+     //console.log(likes.push(likersId));
+      console.log(products);
+    }
+ 
+    let likersId="satyawan"
+    productToBeLiked="mobile phone"
+    likeProduct(likersId,productToBeLiked)
+
+    </script>
+</body>
+
+</html>

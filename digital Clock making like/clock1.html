@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <span id="updateTime"></span>
+    </div>
+
+
+
+    <script>
+        let timeUpdateHere=document.getElementById('updateTime')
+        timeUpdateHere.innerHTML="Jai Siya Ram"
+
+        function timeUpdate()
+        {
+            let now = new Date
+            let hour=now.getHours()
+            let min=now.getMinutes()
+            let sec=now.getSeconds()
+            let timeInString=(`${hour}:${min}:${sec}`)
+            timeUpdateHere.innerHTML=timeInString 
+            
+        }
+        timeUpdate()
+
+        setInterval(timeUpdate,1000)
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript for Everyone: DOM</title>
+   
+</head>
+<body>
+   
+  <p id="one">Hello ji m in first para</p>
+  <p id="two">m in 2nd para</p>
+  <p id="three">m in 3rd para</p>
+  <p id="four">m in 4th para</p>
+  
+
+  <script>
+    //1. 
+    
+    let para1=document.querySelectorAll('p')
+  
+     para1.forEach((ele)=>
+     {
+       console.log(ele.textContent);
+     }) 
+
+     let paraOne=document.querySelector('#one')
+     console.log(paraOne.textContent);
+     
+     
+  </script>
+</body>
+</html>
